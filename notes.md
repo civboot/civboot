@@ -71,17 +71,42 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
         *   Made in 1983 and is still the most widely sold single computer of all time. 
         *   10,000+ commercial software titles were made for it.
         *   Capable of 16 bit color graphics, as well as sound
-        *   It was made **almost entirely in house**, including custom integrated circuit chips from MOS Technology
-*   [Semiconductor_fabrication_plant](https://en.wikipedia.org/wiki/Semiconductor_fabrication_plant) (note to self: update this wikipedia entry, it is terrible)
-    *   [1980's clean room Intel fab](https://www.chiphistory.org/128-an-intel-wafer-fab-cleanroom-circa-1980)
-    *   [paper](https://www.princeton.edu/~ota/disk1/1993/9315/931505.PDF) page 26 says that a fab in 1980 cost ~$100 million (whew, that's more than expected)
-    *   [National Systems of Innovation: Creating High Technology Industries By S. Peters](https://books.google.com/books?id=LJ59DAAAQBAJ&pg=PA80&lpg=PA80&dq=1980+semiconductor+fabrication+plant+cost&source=bl&ots=6nKKg7t0MC&sig=ACfU3U0CBhs9zsxoKKFe6c3AXCBHjtCLfg&hl=en&sa=X&ved=2ahUKEwjvqO_1jO3lAhXW7Z4KHRoACr44ChDoATADegQICRAB#v=onepage&q=1980%20semiconductor%20fabrication%20plant%20cost&f=false)
-        *   "In 1970 the cost of building a fabrication plant was $3 million, but by 1980 the cost had reached approximately $75 million. Throughout the 1980s costs carried on rising, by 1985 the cost of a fabrication plant had risen to around $150 million"
-    *   Note: I wonder if these costs are reflective of if the technology was recreated in the modern day. Clearly achieving anything under 100nm would be near impossible without $1billion+, but what nm-wafer could we achieve for <$10 million? Could we get down to 1000nm? 500nm? 500nm can go as fast as 370MHz (IBM S/390 G4), which could get a LOT done, especially if we brought forth multiple cores. However, the above paper says that by the late 1990s the cost of a fab was >$1 billion, so it feels unlikely that we could produce anything like that.
-    *   Look at it this way, 3MHz is 1000x less than modern CPU speed. In addition, if our fab size is that large it will severely limit how much RAM and other resources we have. What is the minimum we _need_?
-    *   Note: Personally I think we want at least 500 MiB of RAM and 500MHz multi-core processor. It should also be possible to store at least 1GiB on some kind of storage medium. These numbers seem impossible though, as even 256MiB of RAM required 100nm processes (at least).
-*   From what I've seen of semiconductor fabrication, in order to create a self-replicating machine which is simple we likely need to _invent_ a different material/process which is specifically for this purpose. Semiconductor production requires complex machinery, optics, dangerous chemicals, safety precautions, etc.
-*   Inkjet printed transistors
+        *   It was made **almost entirely in house**, including custom
+            integrated circuit chips from MOS Technology
+* [Semiconductor_fabrication_plant](https://en.wikipedia.org/wiki/Semiconductor_fabrication_plant)
+    (note to self: update this wikipedia entry, it is terrible)
+ * [Seeking Alpha Article with helpful graph](https://seekingalpha.com/article/3518016-dissecting-complex-semiconductor-industry-where-is-heading-over-next-5-years)
+   [graph](https://static.seekingalpha.com/uploads/2015/9/15027822_14424109464539_rId9.png)
+ * [1980's clean room Intel fab](https://www.chiphistory.org/128-an-intel-wafer-fab-cleanroom-circa-1980)
+ * [paper](https://www.princeton.edu/~ota/disk1/1993/9315/931505.PDF) page
+   26 says that a fab in 1980 cost ~$100 million (whew, that's more than
+   expected)
+ * [National Systems of Innovation: Creating High Technology Industries By S. Peters](https://books.google.com/books?id=LJ59DAAAQBAJ&pg=PA80&lpg=PA80&dq=1980+semiconductor+fabrication+plant+cost&source=bl&ots=6nKKg7t0MC&sig=ACfU3U0CBhs9zsxoKKFe6c3AXCBHjtCLfg&hl=en&sa=X&ved=2ahUKEwjvqO_1jO3lAhXW7Z4KHRoACr44ChDoATADegQICRAB#v=onepage&q=1980%20semiconductor%20fabrication%20plant%20cost&f=false)
+   *   "In 1970 the cost of building a fabrication plant was $3 million,
+       but by 1980 the cost had reached approximately $75 million.
+       Throughout the 1980s costs carried on rising, by 1985 the cost of a
+       fabrication plant had risen to around $150 million"
+ * Note: I wonder if these costs are reflective of if the technology was
+   recreated in the modern day. Clearly achieving anything under 100nm
+   would be near impossible without $1billion+, but what nm-wafer could we
+   achieve for < $10 million? Could we get down to 1000nm? 500nm? 500nm can
+   go as fast as 370MHz (IBM S/390 G4), which could get a LOT done,
+   especially if we brought forth multiple cores. However, the above paper
+   says that by the late 1990s the cost of a fab was > $1 billion, so it
+   feels unlikely that we could produce anything like that.
+ * Look at it this way, 3MHz is 1000x less than modern CPU speed. In
+   addition, if our fab size is that large it will severely limit how much
+   RAM and other resources we have. What is the minimum we _need_?
+ * Note: Personally I think we want at least 500 MiB of RAM and 500MHz
+   multi-core processor. It should also be possible to store at least 1GiB
+   on some kind of storage medium. These numbers seem impossible though,
+   as even 256MiB of RAM required 100nm processes (at least).
+* From what I've seen of semiconductor fabrication, in order to create a
+  self-replicating machine which is simple we likely need to _invent_ a
+  different material/process which is specifically for this purpose.
+  Semiconductor production requires complex machinery, optics, dangerous
+  chemicals, safety precautions, etc.
+* Inkjet printed transistors
     *   [Inkjet Printing of High Performance Transistors with Micron Order Chemically Set Gaps](https://www.nature.com/articles/s41598-017-01391-2)
     *   It is entirely possible that over the next decade it will be possible to _print_ circuits of the needed size. In addition, these transistors demonstrate speeds >18GHz. Perhaps this problem is not so insurmountable.
     *   [Jan 2019 Wiley Online Library overview of inkjet printing transistors](https://onlinelibrary.wiley.com/doi/full/10.1002/advs.201801445)
