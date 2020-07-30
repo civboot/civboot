@@ -54,9 +54,6 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 
 
 ### Village Toolset
-
-
-
 *   [Open Source Ecology](https://www.opensourceecology.org/gvcs/)
 
 
@@ -115,11 +112,33 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 
 
 ### Computer Software
-
-
-
 *   https://bootstrappable.org/
 *   [Rust layouts and ABIs](https://gankra.github.io/blah/rust-layouts-and-abis/): has some interesting details on what is required for rust to work at all
 *   [Adventures in Motion Control](http://adventures.michaelfbryan.com/posts/announcing-adventures-in-motion-control/): guide on creating a CNC simulator to understand how they work better
 *   NixOS is a bootstrapping operating system and build system where every component can be built from near scratch
 *   
+
+### Composting
+*   [Composting human waste][Composting human waste]: it seems that industrial
+    facilities pre-heat the input to kill any bacteria.
+*   [Anerobic space food][Anerobic space food]
+*   [Bugs in composting](http://compost.css.cornell.edu/invertebrates.html)
+*   [Aenerobic digestion][Aenerobic digestion] converts waste into usable
+    fertilizer without the need for oxygen or heat-treatment
+*   [Aenerobic FAQs UoMch][Aenerobic FAQs UoMch]: kills bacteria, although not
+    100%. Separates liquids from solids. Creates 
+*   [Pyrolosis of biosolids][Pyrolosis of biosolids]: effective method for
+    removing waste from biosolids... but also completely destroys it's use for
+    farming.
+*   [Antibiotic eating bacteria][Antibiotic eating bacteria]
+*   [Guidelines on feces][Guidelines on feces]
+
+[BBVA Open Mind]: https://www.bbvaopenmind.com/en/about-us/
+[Composting human waste]: https://www.gardeningknowhow.com/composting/ingredients/composting-human-waste.htm#:~:text=Composting%20human%20waste%20is%20risky,humanure%20systems%20are%20rarely%20approved.
+[Anerobic space food]: https://www.independent.co.uk/news/science/astronauts-food-human-waste-marmite-iss-international-space-station-nasa-a8179451.html
+[Aenerobic digestion]: https://www.epa.gov/agstar/how-does-anaerobic-digestion-work
+[Aenerobic FAQs UoMch]: https://www.michigan.gov/documents/anaerobic_digester_FAQs_2005_137431_7.pdf
+[Methanotroph]: https://en.wikipedia.org/wiki/Methanotroph
+[Pyrolosis of biosolids]: https://www.sciencedirect.com/science/article/pii/S0956053X18303313
+[Antibiotic eating bacteria]: https://medicine.wustl.edu/news/bacterias-appetite-may-be-key-to-cleaning-up-antibiotic-contaminated-environments/
+[Guidelines on feces]: http://www.ecosanres.org/pdf_files/ESR_Publications_2004/ESR2web.pdf

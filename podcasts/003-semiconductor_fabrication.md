@@ -56,4 +56,5 @@ Other links:
 [nanomagnetic logic]: https://www.advancedsciencenews.com/energy-efficient-computing-via-nanomagnetic-logic-architectures/
 [nml simulator]: https://link.springer.com/article/10.1007/s10825-018-1215-8?shared-article-renderer
 [nml fabrication]: https://www.researchgate.net/publication/269328479_Nanomagnetic_logic_devices_fabrication_using_nanoimprint_lithography
+[nanotube CPU]: https://www.sciencenews.org/article/chip-carbon-nanotubes-not-silicon-marks-computing-milestone
 
