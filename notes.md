@@ -59,8 +59,6 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 
 ### Computer Hardware
 
-
-
 *   [microprocessor chronology](https://en.wikipedia.org/wiki/Microprocessor_chronology) and [RAM timeline](https://en.wikipedia.org/wiki/Random-access_memory#Timeline) gives a basic idea of circuit sizes through time
     *   3MHz at 3um (1983 RISC-II), 40k transistors
     *   1GHz possible at 250 nm (1999 AMD Athalon), 22M transistors
