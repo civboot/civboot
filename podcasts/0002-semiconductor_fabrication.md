@@ -1,3 +1,10 @@
+First a little groundwork
+ - What is the timeframe of civboot?
+ - What are the minimum requirements? 
+   - Forth operating system CollapseOS on z80 9000 transistors greenarray chips
+     http://www.greenarraychips.com/ with full chip design software in forth,
+     and apparently minimal resource usage. ([forth experience blog])
+
 
 - What is silicone used for? Why is pure silicone needed?
   - We'll get more into how to manufacture computer chips later, although there
@@ -159,3 +166,4 @@ Other links:
 [silicone grains]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4640800/
 [microprocessor chronology]: https://en.wikipedia.org/wiki/Microprocessor_chronology
 [RAM timeline]: https://en.wikipedia.org/wiki/Random-access_memory#Timeline
+[forth experience blog]: http://yosefk.com/blog/my-history-with-forth-stack-machines.html
