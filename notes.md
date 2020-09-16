@@ -10,21 +10,6 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 
 
 
-*   Human Tools and Equipment: 
-    *   Hand tools: saw, hammer, axe, shovel, pickaxe, etc
-    *   Powered hand tools: drill, rotary saw, soldering iron, etc
-    *   Vehicles: tractor, bulldozer, etc
-*   Manufacturing:
-    *   Materials creation: blast furnace, forge, brick builder, plastic (like) material synthesis, etc 
-    *   Fabrication: CNC machine, 3D printer (multi-material), etc
-*   Energy:
-    *   Power Usage: electric motor (+generator)
-    *   Power Generation: Steam generator, wind, solar (?)
-    *   Power Storage: battery, steam storage, gravity storage
-*   See **[Open Source Ecology](https://www.opensourceecology.org/gvcs/)** for current work on many of these designs
-
-**Computer Hardware**: the computer hardware manufactured will likely be extremely limited compared to modern computer hardware.
-
 
 
 *   Basically wikipedia [list of steps](https://en.wikipedia.org/wiki/Semiconductor_device_fabrication#List_of_steps)
