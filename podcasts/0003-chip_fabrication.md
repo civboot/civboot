@@ -1,4 +1,6 @@
 
+- https://www.lowrisc.org/our-work/ : check out the _rocket core_ in
+  particular.
 - https://www.lowrisc.org/open-silicon/
 - https://libresilicon.com/
 - https://github.com/google/skywater-pdk: open sourced 130nm process

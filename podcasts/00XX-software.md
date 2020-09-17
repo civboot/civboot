@@ -10,4 +10,4 @@
 - https://prog21.dadgum.com/30.html - 2 papers to read about writing a compiler
 - https://archiveprogram.github.com/ - open source archive program
 - http://www.greenarraychips.com/ - creator of forth's chip factory
-
+- https://kestrelcomputer.github.io/kestrel/ - personal computer project OSS
