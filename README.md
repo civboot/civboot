@@ -339,27 +339,32 @@ The basic language stack for software is currently imagined to be:
 
 1.  Forth OS / bootloader largely paralleling CollapseOS's design
 1.  WASM compiler and WASI runtime written in Forth.
-1.  Scheme stage0 compiler (to wasm) written in forth. Scheme has many of the
-    benefits of forth, where the compiler can "walk" very early using only a few
-    primitives. [Schism](https://github.com/google/schism) seems like a good
-    target with it's focus on an ultra-simple stage0 compiler and the fact it
-    targets WASM.
-1.  (possibly) A fully functional language, possibly Clojure, written in Scheme which
-    compiles to wasm/wasi.
+1.  A stage0 compiler written in Forth for a higher level typed langage. I'm
+    working on my own language ([wheat](github.com/vitiral/wheat)) but would
+    love suggestions on a different language that meets these requirements.
+    This would (primarily) compile to wasm.
+1.  (possibly) A fully functional language written in the above which compiles
+    to wasm/wasi.
 1.  A language with safety and runtime features similar to rust, who's compiler
     is written in Scheme or Clojure. Currently considering reimplementing
-    [Carp](https://github.com/carp-lang/Carp). This could emit wasm/wasi OR machine
-    code and could be used to construct a stage1 OS.
+    [Carp](https://github.com/carp-lang/Carp) or maybe wheat/other could
+    actually get to this point. This could emit wasm/wasi OR machine code and
+    could be used to construct a stage1 OS.
 
 Items 4 and 5 are likely only possible if the hardware is sufficiently
-advanced. Therefore early focus should be on forth + wasm + scheme. Using
-primarily Forth and scheme the following should be constructed:
+advanced. Therefore early focus should be on forth + wasm + wheat/other. Using
+primarily Forth and wheat/other the following should be constructed:
 
 - Filesystem, memory manager, shell, etc. does not have to adhere to POSIX or
   any such standard.
 - A vim-like text editor but with emacs-like extensibilty. A huge percentage of
   software can be built using such a system as the primary interface.
-- TODO: CAD, circuit layout, chip design, communication, etc etc
+- CAD and board-layout software similar to [ImplicitCAD][ImplicitCAD], i.e.
+  does not require a GUI.
+- VLSI tool sufficient for Civboot's simple chips. Software-driven like the CAD
+  tool.
+- Communication: SPI, I2C, CAN-bus, ethernet should be sufficient. A ZigBee like
+  protocol would also be highly useful.
 
 
-
+[ImplicitCAD]: https://github.com/colah/ImplicitCAD

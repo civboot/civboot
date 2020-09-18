@@ -3,7 +3,6 @@
 - https://www.complang.tuwien.ac.at/forth/gforth/Docs-html/Introduction.html#Introduction : gforth tutorial
 - http://www.complang.tuwien.ac.at/schani/oldstuff/#schemeinforth - scheme interpretrs in many languages, including forth
 - http://yosefk.com/blog/my-history-with-forth-stack-machines.html - interesting blog post
-- https://github.com/google/schism - self-hosting scheme to wasm compiler
 - https://el-tramo.be/blog/waforth/ - dynamic forth compiler written in WASM.
   Very intersting to see how wasm can do dynamic execution.
 - https://github.com/carp-lang/Carp - Carp programming language
