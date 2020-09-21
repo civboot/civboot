@@ -345,11 +345,6 @@ The basic language stack for software is currently imagined to be:
     This would (primarily) compile to wasm.
 1.  (possibly) A fully functional language written in the above which compiles
     to wasm/wasi.
-1.  A language with safety and runtime features similar to rust, who's compiler
-    is written in Scheme or Clojure. Currently considering reimplementing
-    [Carp](https://github.com/carp-lang/Carp) or maybe wheat/other could
-    actually get to this point. This could emit wasm/wasi OR machine code and
-    could be used to construct a stage1 OS.
 
 Items 4 and 5 are likely only possible if the hardware is sufficiently
 advanced. Therefore early focus should be on forth + wasm + wheat/other. Using
