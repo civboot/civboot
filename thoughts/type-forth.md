@@ -160,7 +160,7 @@ Each variant is then encoded with it's own method used in ECASE. For example:
 
 
 Example use below. SWITCHE conceputally calls `dup $m vi SWITCH`. Each ECASE is
-the variant index
+the variant index followed by a lookup into the variantTable with an EXECUTE.
 ```
 myEnumValue SWITCHE
   ECASE uVariant
