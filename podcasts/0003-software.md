@@ -1,10 +1,10 @@
 # Civboot Software Stack
 
-Watch on [youtube][youtube] or listen on
-[anchor][anchor] or wherever you get your podcasts.
+Watch on [youtube][youtube] or listen on [anchor][anchor] or wherever you get
+your podcasts.
 
-[anchor]: TODO
-[youtube]: TODO
+[anchor]: https://anchor.fm/civboot/episodes/0003---What-software-does-civilization-really-need-el9tb7
+[youtube]: https://youtu.be/BiiOA3vJgXI
 > This is the podcast component to the [blog](../blog/0003-software.md). It is
 > not respoken word-for-word writeup, but rather in the same spirit.
 
