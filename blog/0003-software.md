@@ -51,7 +51,7 @@ a few kB of code demonstrates that a Civboot can design and simulate itself on
 it's own minimal hardware.
 
 It's worth mentioning that none of this is a criticism of modern software development.
-Modern software development (at leat the high quality kind) is built on
+Modern software development (at least the high quality kind) is built on
 _encapsulation_ of complexity and then layering it. There are many advantages
 to this, one of the main ones being that you can have hundreds of thousands or
 even millions of people working on tiny pieces of software towards a very large
@@ -66,7 +66,6 @@ the whole stack. For this reason, modern software methodology does not work for
 a Civboot -- where the primary goal is for a single person to be able to
 understand at least one component of the whole within ~4years ("component"
 being for example software, hardware, material fabrication, etc).
-
 
 This is why my current thinking on a Civboot's software stack is to support only
 two languages: Assembly and TypeForth. However, because forth can modify itself
