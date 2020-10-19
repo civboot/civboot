@@ -1,7 +1,7 @@
 # Civboot Software Stack
 
-Watch on [youtube][youtube] or listen on [anchor][anchor] or wherever you get
-your podcasts.
+Download [here](./0003-software.mp3), watch on [youtube][youtube] or listen on
+[anchor][anchor] or wherever you get your podcasts.
 
 [anchor]: https://anchor.fm/civboot/episodes/0003---What-software-does-civilization-really-need-el9tb7
 [youtube]: https://youtu.be/BiiOA3vJgXI
