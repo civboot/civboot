@@ -1,3 +1,13 @@
+# Episode 2: Could a community produce their own computer chips?
+
+Download [here](./0002.mka), watch on [youtube][youtube] or listen on
+[anchor][anchor] or wherever you get your podcasts.
+
+[anchor]: https://anchor.fm/civboot/episodes/0002---Could-a-community-produce-their-own-computer-chips-ejmum0
+[youtube]: https://www.youtube.com/watch?v=2pJjzKlYI8g
+
+Show notes
+
 First a little groundwork
  - What is the timeframe of civboot?
  - What are the minimum requirements? 
