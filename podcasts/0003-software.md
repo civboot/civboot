@@ -1,7 +1,22 @@
 # Civboot Software Stack
+
+Watch on [youtube][youtube] or listen on
+[anchor][anchor] or wherever you get your podcasts.
+
+[anchor]: TODO
+[youtube]: TODO
 > This is the podcast component to the [blog](../blog/0003-software.md). It is
 > not respoken word-for-word writeup, but rather in the same spirit.
 
+Outline:
+- Been awhile, been busy working on my own forth. More updates in the future.
+- Instead of discussing making a CPU, talk a bit about software.
+- What is forth? Why is it important for Civboot?
+  - CollapseOS
+  - GreenArrays
+- Stack based CPUs: only ~9000 transistors
+  - Other hardware elements discussed in future episode.
+- Software complexity compared to Civboot
 
 References:
 - https://fuel.edby.coffee/posts/how-we-ported-xv6-os-to-a-home-built-cpu-with-a-home-built-c-compiler/

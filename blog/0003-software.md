@@ -3,13 +3,14 @@
 > not a word-for-word writeup, but rather in the same spirit.
 
 I've been very busy lately writing a [forth][triforth] that I feel could properly
-underpin the software a Civboot needs to build. Forth the language has become very
-exciting to me lately, ever since I saw [CollapseOS.org](CollapseOS.org)'s forth
-implementation which provides a full operating system, text editor, cross compiler,
-etc existing on an 8bit 16kB z80 CPU. Maybe more exciting is the [J1][J1] CPU running
-[swapforth][swapforth]. I'll just quote [the author][J1-blog] "The whole
-system is: an Open Source Forth kernel (SwapForth), running on an Open Source
-CPU (the J1a), built using an entirely Open Source FPGA toolchain (IceStorm)"
+underpin the software a [Civboot](Civboot.org) needs to build. Forth the
+language has become very exciting to me lately, ever since I saw
+[CollapseOS](CollapseOS.org)'s forth implementation which provides a full
+operating system, text editor, cross compiler, etc existing on an 8bit 16kB z80
+CPU. Maybe more exciting is the [J1][J1] CPU running [swapforth][swapforth].
+I'll just quote [the author][J1-blog] "The whole system is: an Open Source
+Forth kernel (SwapForth), running on an Open Source CPU (the J1a), built using
+an entirely Open Source FPGA toolchain (IceStorm)"
 
 With Forth, we can write a bootstrapper in ~1000 lines of assembly, and because
 of the properties of forth the _rest of the language_ can be written in Forth.
@@ -63,8 +64,8 @@ What you end up with is a well-defined stack of _thousands_, even hundreds of
 thousands, of moving parts. No group of people can understand the operation of
 the whole stack. For this reason, modern software methodology does not work for
 a Civboot -- where the primary goal is for a single person to be able to
-understand at least one component of the whole ("component" being for example
-software, hardware, material fabrication, etc).
+understand at least one component of the whole within ~4years ("component"
+being for example software, hardware, material fabrication, etc).
 
 
 This is why my current thinking on a Civboot's software stack is to support only
@@ -72,20 +73,22 @@ two languages: Assembly and TypeForth. However, because forth can modify itself
 at runtime (it's one of the pearls of the language), it is nearly trivial to
 write domain-specific languages. Need a hermetic configuration language? Simply
 create a simple garbage collector and define some immutable datatypes. Then
-spin up a new interpreter with an allowlist of which words are okay to be called.
-Maybe there will be a few leaks -- but overall you have basically created a
-forth-style [bazel][bazel] using forth instead of python as your config language.
-When you've got your config, simply reset the dictionary to before you imported
-your config forth-bazel and drop it's memory arena. Wallah! You have used zero
-memory and can continue building.
+spin up a new interpreter with an allowlist of which words are okay to be
+called (writing to memory addresses won't be one!).  Maybe there will be a few
+leaks -- but overall you have basically created a forth-style [bazel][bazel]
+using forth instead of python as your config language.  When you've got your
+config, simply reset the dictionary to before you imported your config
+forth-bazel and drop it's memory arena. Wallah! You have used zero memory and
+can continue building.
 
 This allows Civilization's technology stack to be learnable within a short
 amount of time by a small number of people -- that is the purpose of a Civboot.
 However, it is not saying that encapsulating complexity or building large
 software projects is somehow bad. Go ahead, try new complex things. Build
-different layers to get there. Work together -- that is what our tools can
-offer you. We achieve simplicity by starting out with a compliated solution
-and simplifying it. In fact, that's exactly what Civboot is trying to do.
+different layers to get there. Work together -- that is what civilization's
+tools can offer you. We achieve simplicity by starting out with a compliated
+solution and simplifying it. In fact, that's exactly what Civboot is trying to
+do to our current technology stack.
 
 
 [triforth]: https://github.com/civboot/triforth
