@@ -213,12 +213,6 @@ extremely limited compared to modern computer hardware.
   likely the best target for Civboot, as such CPUs can be produced with only a
   few thousand transistors.
 
-[podcast 0002]: https://anchor.fm/civboot/episodes/0002---Could-a-community-produce-their-own-computer-chips-ejmum0)
-[Impurity doping]: https://en.wikipedia.org/wiki/Wafer_(electronics)#Impurity_doping
-[nanotube CPU]: https://www.sciencenews.org/article/chip-carbon-nanotubes-not-silicon-marks-computing-milestone
-[J1]: https://github.com/jamesbowman/j1
-
-
 **Computer Software**: [CollapseOS](CollapseOS.org) gives a pretty good idea of
 how to get software bootstrapped on basic hardware using only a few hundred
 lines of assembly and forth code. That OS fits on less than 5k, requires no
@@ -246,6 +240,9 @@ a site-database can hold tutorials and educational software similar to [Khan
 Academy](https://www.khanacademy.org/), which can aid the self-learning of
 Civboot students.
 
+[Impurity doping]: https://en.wikipedia.org/wiki/Wafer_(electronics)#Impurity_doping
+[nanotube CPU]: https://www.sciencenews.org/article/chip-carbon-nanotubes-not-silicon-marks-computing-milestone
+[J1]: https://github.com/jamesbowman/j1
 [ImplicitCAD]: https://github.com/colah/ImplicitCAD
 [typeforth]: https://typeforth.org
 [PJON]: https://github.com/gioblu/PJON
