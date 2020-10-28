@@ -90,13 +90,14 @@ and we can only understand what we can create.
 
 You are probably thinking the _real_ goal of Civboot is to be able to survive
 an apocalypse-type scenario. This was indeed one of the inspirations for Civboot,
-and the project CollapseOS.org was a motivation for the current technology stack
-that Civboot is pursuing. I believe that thinking along "negative" outcomes
-such as "what happens if civilization collapses" is highly productive to creativity,
-growth and learning in much the same way as death and rot are essential for the
-growth of plants and sustenence of all life. Having a noble goal of being
-educational and a motivational goal of concern for the future provides a good
-balance from which I hope Civboot and its community can thrive.
+and the project [CollapseOS](CollapseOS.org) was a motivation for the current
+technology stack that Civboot is pursuing. I believe that thinking along
+"negative" outcomes such as "what happens if civilization collapses" is highly
+productive to creativity, growth and learning in much the same way as death and
+rot are essential for the growth of plants and sustenence of all life. Having a
+noble goal of being educational and a motivational goal of concern for the
+future provides a good balance from which I hope Civboot and its community can
+thrive.
 
 Civboot is and must remain completely free and open. In order to fulfill its
 mission, it must be possible to have a working-understanding of every level of
@@ -223,22 +224,24 @@ extremely limited compared to modern computer hardware.
 [J1]: https://github.com/jamesbowman/j1
 
 
-**Computer Software**: CollapseOS.org gives a pretty good idea of how to get software
-bootstrapped on basic hardware using only a few hundred lines of assembly and
-forth code. That OS fits on less than 5k, requires no binary blobs, and can cross
-compile to several other architectures. The Forth programming language is a
-primary driver of this simplicity. A (forth) compiler, basic file system, text
-editor, assembler and cross compiler was written largely by a single individual
-and runs on a computer chip with <9000 transistors from the 1970's.
+**Computer Software**: [CollapseOS](CollapseOS.org) gives a pretty good idea of
+how to get software bootstrapped on basic hardware using only a few hundred
+lines of assembly and forth code. That OS fits on less than 5k, requires no
+binary blobs, and can cross compile to several other architectures. The Forth
+programming language is a primary driver of this simplicity. A (forth)
+compiler, basic file system, text editor, assembler and cross compiler was
+written largely by a single individual and runs on a computer chip with <9000
+transistors from the 1970's.
 
-The basic language stack for software is currently imagined to be:
-Forth OS / bootloader largely paralleling the design of CollapseOS.org, but probably
-using [typeforth][typeforth]. This work is [in progress](https://github.com/civboot/triforth),
-with a minimal forth language working, but it will undergo several redesigns
-before the next phase. The CivbootOS will use forth for all core software including
-filesystem, memory manager, (forth) shell, text editor, etc.  Very likely,
-severe restrictions will be put in place, like only being able to allocate up
-to 1KiB contiguous memory for most data structures.
+The basic language stack for software is currently imagined to be: Forth OS /
+bootloader largely paralleling the design of CollapseOS, but probably using
+[typeforth][typeforth]. This work is [in
+progress](https://github.com/civboot/triforth), with a minimal forth language
+working, but it will undergo several redesigns before the next phase. The
+CivbootOS will use forth for all core software including filesystem, memory
+manager, (forth) shell, text editor, etc.  Very likely, severe restrictions
+will be put in place, like only being able to allocate up to 1KiB contiguous
+memory for most data structures.
 
 On top of this OS, software should be written including CAD, board-layout and VLSI
 software similar to [ImplicitCAD][ImplicitCAD], i.e. does not require a GUI. In addition
