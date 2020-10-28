@@ -1,5 +1,11 @@
 # Civboot: a civilizational bootstrapper
 
+_What I cannot create, I do not understand_ - on the blackboard of Richard P.
+Feynman at the time of his death.
+
+_Everything should be made as simple as possible, but no simpler._ -- Albert
+Einstein
+
 This is the repository for Civboot: a Civilizational Bootstrapper. It's purpose
 is to act as a version-controlled wiki for all efforts related to Civboot.
 
@@ -14,233 +20,123 @@ I have also started a podcast. View it on [youtube][CB youtube] or listen on
 [CB anchor]: https://anchor.fm/civboot
 
 ## Introduction
-For the past several decades the complexity of technology has continuously
-outpaced our ability to understand and replicate it from a first principles
-understanding. Not only does this leave humanity itself vulnerable to an outage
-of the internet or the global supply chain, it also harms our ability to
-understand the core technology of our civilization and violates the
-philosophical principle that civilization itself should have ownership of the
-building blocks which form it. Civboot gives humanity a place to start over --
-to rethink how technology should be built from first principles as well as a
-place which can be improved for the benefit of all.
 
-A **Civboot** is a civilizational bootstrapper, meaning it contains all essential
-components necessary to build and improve itself using only knowledge and tools
-contained within itself. In other words, it is the set of tools and knowledge
-necessary to design, modify and build all components that modern civilization
-depends on such as computers, motors, machinery, metals, electronic displays,
-buildings, air conditioners, energy generation, energy storage, etc. It must be
-able to achieve this using only raw materials, human involvement and the tools
-and knowledge contained within itself.
+How large would a warehouse have to be in order to both:
 
-It is important to note what it is _not_. Civboot is _not_ a set of guides on
-how to start with _only_ raw materials and then create complex technology. For
-example, it is NOT starting with just sand, coal and iron ore and manufacturing
-a forge -- it is starting with a forge (and other tools) and manufacturing a
-forge using raw materials.
+1. Build simple computers in a semi-autonomous way from scratch using only
+   tools and knowledge within the warehouse.
+2. Build another such warehouse and make improvements to it.
 
-Civboot is and must remain completely free and open. In order to fulfill its
-mission, it must be possible to understand every level of its design -- from
-materials science, to manufacturing process, to mechanics, to the computer
-hardware and software it is running. Included information and processes should
-be as simple as possible -- these concepts should be easy to learn and
-replicate. This constraint will force simplification of the designs, ideas and
-software being included. We must take our complicated technology stack and work
-on distilling it to its essentials, then rebuild upon those essentials to be
-even more efficient and simple.
+If such a warehouse existed, it would be a Civboot. Civboot aims to simplify
+technology by simplifying technology's requirements. Fundamentally Civboot is
+an educational tool: it can provide a working understanding of the tools and
+processes that underpin our technology. Putting the question another way, if
+there were a high-school & college curriculum with the sole goal of
+accomploshing "project based learning" of having the entire class (400+
+students) understand and reconstruct a Civboot using only the tools within the
+Civboot; how many people would that be, how large would the warehouse be and
+how many instructors would be required?
+
+This is the fundamental question of Civboot, a project which aims to reduce the
+tools and knowledge necessary to bootstrap modern civilization as much as
+possible. It is important to point out early that a Civboot does _not_ contain
+everything required to build or support Civilization such as food, clothing or
+a bed; in the same way as a bootstrapper for an operating system does not
+contain all the bells and whistles of the operating system itself. A Civboot
+only contains the tools and knowledge necessary to build computers and itself.
+
+In terms of supporting a community with things like food, clothing and shelter,
+a Civboot has one additional goal: be able to provide these things within three
+degrees. For instance, a Civboot cannot construct a tractor directly, but you
+can use tooling within a Civboot to build a factory (the 1st degree), then you
+can use the factory to build gears and other tractor components and assemble a
+tractor (the 2nd degree).
+
+Another point: a Civboot only contains tutorials to provide a _working
+knowledge_ of how to reconstruct and improve the Civboot. Deeper understanding
+of things like transistors, hardware architecture, software architecture,
+chemistry, mechanical engineering, etc can take potentially a lifetime of
+learning. It is hoped that Civboot can be a foundation for that learning, but
+Civboot itself aims to provide only a working understanding.
 
 This project is NOT an attempt to "do this at home." Creating the first Civboot
 will no doubt require millions of dollars and the efforts of thousands of
 individuals to design, experiment, document and simplify a huge range of
 technologies which cross an extremely broad range of disciplines. The first
-Civboot will likely be made "distributed" -- with teams from all over the world
-sending their products to each other, collaborating on multiple different
-approaches. The hope is to get hackers, professionals, retired experts,
-academia and organizational support to help distill civilization's knowledge
-into a stack that can be understood and self replicated.
+Civboot will likely be made "distributed" (if it is ever made at all) -- with
+teams from all over the world sending their products to each other,
+collaborating on multiple different approaches. The hope is to get hackers,
+professionals, retired experts, universities and organizational support to help
+distill civilization's knowledge into a stack that can be understood and self
+replicated.
 
-This document is the first rough-draft to define what a Civboot is and why we
-want one.
+Even if we fail, it will be worth the effort. Having a simplified
+working-understanding of technology has many advantages other than the
+construction of a Civboot.
 
-## Why A Civboot is Needed
-The power of technology has been on a rapid upward trend and has lead to an
-expansive growth of wealth and well being for humanity. However, as the power
-has grown the complexity has grown with it -- the point that it is no longer
-possible for even a large group with extensive resource to recreate the
-building blocks of civilization. This leads to the four major problems which
-Civboot can solve which are around education, innovation, ownership and risk
-management.
+## Philosphy of Civboot
 
-The first problem has to do with education. It is now impossible for even a
-group of 1000 or more individuals to learn and replicate the technology stack
-which civilization depends on. This makes education more theoretical and less
-hands on, as well as discouraging learning through experimentation.
+Civboot is not a criticism of the current complexity of technology. Technology
+is (largely) as complex as we want it to be for the requirements we have:
+hiding internal complexity, simplified and beautiful user interfaces, and
+scalability of more engineers working on large-scale problems.
 
-The second problem has to do with the philosophy of ownership. As it is, the
-core building blocks of civilization (primarily: computer hardware) are
-controlled by a few large corporations. It is not possible for a community or
-buisness to take ownership of this technology unless they devote multiple
-billions of dollars to the effort. This is still true (but less so) of other
-areas of the stack, even most open source software can only be compiled and run
-by using binaries which can only run on proprietary hardware.
+Civboot is founded on a philosophical idea: modern civilization would be better
+off if it owned the means to produce it's essential components. This is not
+to say that proprietary pieces of the tech stack are somehow _wrong_ (although
+some believe that). Civboot is not an economic philosophy, it is a scientific
+one. Humanity is better off when it can understand the technology it depends on,
+and we can only understand what we can create.
 
-The third problem has to do with innovation. Because the technology stack is
-so complex and expensive, you have to be a billionare to even attempt to
-verticly integrate any piece of it for innovation. For decades the space
-industry stagnated and even regressed until SpaceX verticly integrated and
-innovated on every component inhouse. Trying to do this for computers would be
-next to impossible.
+You are probably thinking the _real_ goal of Civboot is to be able to survive
+an apocalypse-type scenario. This was indeed one of the inspirations for Civboot,
+and the project CollapseOS.org was a motivation for the current technology stack
+that Civboot is pursuing. I believe that thinking along "negative" outcomes
+such as "what happens if civilization collapses" is highly productive to creativity,
+growth and learning in much the same way as death and rot are essential for the
+growth of plants and sustenence of all life. Having a noble goal of being
+educational and a motivational goal of concern for the future provides a good
+balance from which I hope Civboot and its community can thrive.
 
-The forth problem has to do with risk. As technology and the supply chain get
-more and more complex and intertwinted it becomes increasingly difficult to
-adapt to hard changes. What would happen if most major silicone fabrication
-facilities were destroyed? How would we adapt if there was a disruption to
-the worldwide internet? If there were a world war which lasted for 10 years,
-would civilization be able to recover, having not been able to build consumer
-hardware during that time? 
-
-Computers are unreliable things and the only way to build them at the
-complexity modern civilization demands is to use more computers to control
-their fabrication. Modern software is compiled using large binaries which were
-obtained and stored from a previous compiler. It is no longer possible to
-"start from scratch" on a huge percentage of what makes modern civilization
-what it is, which means that a disruption to any part of this chain may be
-unrecoverable.
+Civboot is and must remain completely free and open. In order to fulfill its
+mission, it must be possible to have a working-understanding of every level of
+its design -- from materials science, to manufacturing process, to mechanics,
+to the computer hardware and software it is running. Included information and
+processes should be as simple as possible -- these concepts should be easy to
+learn and replicate. This constraint will force simplification of the designs,
+ideas and software being included. We must take our complicated technology
+stack and work on distilling it to its essentials, then rebuild upon those
+essentials to be even more efficient and simple.
 
 ## Goals
-The Civboot dream is that any group of 500 or more individuals could be freely
-given the tools and knowledge necessary to create the building blocks of modern
-civilization.  There are five "levels" of achievement in this plan. Attaining a
-certain level does not require deprecating the previous one, in fact each level
-should work to improve and build upon the levels below it to make them simpler
-and easier to understand.
+The first goal of Civboot is to be able to create a technology stack which can
+self-replicate with 500 motivated students in 8 years, starting with a
+US-equivalent 8th grade education. In addition, the goal is to be able to
+rebuild a Civboot (with a Civboot) for less than 25 million dollars --
+or $50,000 per student, less than the typical cost of 8 years of education in
+the United States.
 
-These are the 5 Civboot levels:
-
-- A level 1 Civboot would allow every human community to have ownership of the
-  technology needed for a modern civilization as we know it today. It is what
-  was described previously in this document.
-- A level 2 "Eco" Civboot would provide cheap renewable energy to help guard
-  against ecological collapse in the next 100+ years.
-- A level 3 "Bioboot" Civboot would provide automated verticle/greenhouse
-  farming and nearly guarantee that human flourishing could continue far into
-  the future, and prevent ecological collapse permanently.
-- A level 4 "Tunnel" Civboot would guard against nearly any kind of
-  extermination event that did not seriously damage the earth's crust while
-  also improving our ability to coexist with the ecosystem even further.
-- A level 5 "Space"  Civboot would mean humanity is a fully open space faring
-  civilization.
-
-Each level represents the different aspirations which Civboot strives for. Its
-primary goal is to be a repository of tools and knolwedge which allows any
-group of people to learn and understand every layer of technology upon which
-civilization can be built, with aspirations about what the future of
-civilization _can_ be.
-
-The full definition of each level is defined below
-
-- **Level 0 - Today**: this is where we are right now. The tools and knowledge
-  to build civilization theoretically exists, as we are living in a global
-  civilization that uses those tools and knowledge to recreate and improve
-  itself.
-- **Level 0+ - demonstrated layers**: each layer of a finished Civboot should
-  be demonstrated, using technology which is expected to be possible from the
-  layers below it.
-  - For example, creating a CPU fab will take a long time -- so developing
-    software that is expected to work on the future self-made hardware should
-    be done first 
-  - Documentation may be scattered, but the hope should be to simplify as much
-    as possible at this stage to make level 1 smoother.
-
-- **Level 1 - First Civboot**: the creation of a Civboot, which is capable of
-  recreating itself using only itself along with 500 untrained individuals,
-  given raw materials and 5 years of focused time
-  - Likely very basic technology using extremely simple design
-  - Represents a distillation of current knowledge into what is necessary to
-    build civilization from scratch.
-
-- **Level 2 - Eco Civboot**: a Civboot which uses only renewable energy and
-  can recycle 90% or more of (at least) its own components
-  - Builds on Level 1 with some more complex but productive processes,
-    requiring more expertise
-  - Caps increased to 1000 focused untrained individuals and 5 years
-
-- **Level 3 - Bioboot** which can provide near autonomous agriculture and
-  recycle organic matter (aka waste) from human sources and loses 95%+ less
-  water than conventional agriculture
-  - Allows for self sufficiency and ecological sustainability nearly anywhere
-    on the surface of the planet in a variety of ecological conditions
-  - Further builds upon level 2, likely requiring some form of machine learning
-    and automation using (at least) visual recognition -- such as automated
-    vertical farms
-  - Caps increased to 1500 focused untrained individuals and 7 years
-
-- **Level 4 - Tunnel Civboot**: a Civboot which can support a colony of 30,000
-  people living underground with 99%+ recycling of all materials the
-  civilization needs including materials as well as food, water, air and 100%
-  renewable energy.
-  - Essentially a refinement of Level 3 with some additional technology (i.e.
-    tunnel making, mining, more automation, etc)
-  - This could be used as a foundation for "spaceship earth", giving all humans
-    the capability to live in a way which does not interact with the ecosystem,
-    allowing better conservation and nearly guaranteeing that human existence
-    can continue.
-  - Caps increased to 3000 focused untrained individuals and 10 years
-
-- **Level 5 - Space Civboot:** contains all necessary technology for a
-  civilization to live permanently on another celestial body as well as
-  transport a new Civboot & colony from one planet to another (i.e. reusable
-  rockets)
-  - Builds on Level 4 and represents a truly massive accumulation of open
-    knowledge and tools.
-  - Caps increased to 10,000 focused untrained individuals and 15 years.
-
-
-## Non Goals
-
-Civboot does not have an expressly political goal except to democratize the
-tools and knowledge necessary for the building blocks of civilization. Notably,
-it is not trying to put an end to proprietary tools or knowledge, but is rather
-creating a solid foundation upon which new tools and knowledge (whether open or
-proprietary) can be built.
-
-Civboot is not a criticism of the history of technological development to date,
-but rather a purpose statement which hopes to focus on the basics in order to
-foster understanding and greater sharing of knowledge and technology in the
-future.
-
-Civboot is not a for-profit effort. It is not controlled by a single individual
-or group. Any person or group has the right to attempt to build multiple
-different kinds of Civboots and call them a Civboot, provided they meet the
-spirit of the general philosophy of what a Civboot is.
-
-Civboot is not something which is intended to put any company out of business,
-especially in the near term. For instance, even if creating a computer using an
-open technology stack is _possible_, it doesn't mean that it will be cheaper or
-in any way out-compete most commercial products. Commercial products will
-continue to compete with the Civboot technology stack, and they will probably
-outcompete it in all areas, in the near to long term. Once Civboot _does_
-outcompete commercial products, it will be a testament to the democratization
-of technology, which is the next logical step from the current
-commoditization of it, and at that point should be celebrated.
+In addition, there are (aspirationally) 5 Civboot levels. These are not part
+of the core spec, but may help get creative juices flowing. They are documented
+[here](thoughts/levels.md)
 
 ## Constraints
 
 The intent of these constraints is to limit the amount of tools and information
 included in a Civboot into a manageable amount. These constraints (whether
 included or excluded) make no judgement about the importance of said items
-except as to apply to the goal of creating a Level 1 Civboot. Different Civboot
-levels modify some of these constraints.
+except as to apply to the goal of creating the first Civboot.
 
+A Civboot...
 
 - **Must** be entirely free and open.
-  - **Must** not contain proprietary or hidden designs, i.e. no "binary blobs"
+  - **Must not** contain proprietary or hidden designs, i.e. no "binary blobs"
 - **Must** be possible to build itself from itself
   - Requires no outside knowledge besides the language which the guides are
     written in
   - Requires no outside tooling besides commonly found materials (rocks, clay,
     wood, dirt, sand, ore, etc)
-- **Must** include all foundational knowledge necessary to understand every
+- **Must** include all working knowledge necessary to understand every
   component and their interactions.
   - **Must** include the theory and practice of math, physics, chemistry,
     materials science, computer design and programming, etc necessary to
@@ -276,17 +172,16 @@ levels modify some of these constraints.
 - **Should not** include knowledge or tools just for the sake of those who
   build it
   - For example, although the people working on a new Civboot need to eat,
-    farming equipment and practices should not be included (except in L3+).
-  - Some equipment, like a bulldozer/truck, have multiple purposes and so can
-    be included.
+    farming equipment and practices should not be included.
+  - Some equipment, like a bulldozer/truck, have multiple purposes but may be
+    required to build the Civboot itself so should be included.
   - Civboot **should** enable the storage/retrieval of such knowledge and
     construction of such tools
-
 
 ## Progress
 
 The following is an effort to compile what is needed to construct a Level 1
-Civboot.
+Civboot and the current status.
 
 **General Tools and Equipment (non computer)**: See
 [Open Source Ecology](https://www.opensourceecology.org/gvcs/) for current work on many of
@@ -308,16 +203,16 @@ these designs. These two movements share a lot in common.
 **Computer Hardware**: the computer hardware manufactured will likely be
 extremely limited compared to modern computer hardware.
 - [podcast 0002][podcast 0002] ([show notes](podcasts/0002-semiconductor_fabrication.md))
-  focused on whether pure silicone can be produced.
+  focused on whether semiconductors can be built.
 - Basic requirements are to either simply the processing of Silicone (i.e.
-  [silicone grains][silicone grains]) and/or find a better process such as
-  [nanotube CPU][nanotube CPU]. See also [this][DARPA 3DSoC CNFET] and
-  [this][CNFET in factories].
+  [silicone grains][silicone grains]) or a different semiconductor material
+  (like Tin(II) Sulfide) and/or find a simpler process such as [nanotube
+  CPU][nanotube CPU]. See also [this][DARPA 3DSoC CNFET] and [this][CNFET in
+  factories].
 - This is the hardest piece of a civboot.
-- Once circuits can be constructed, the RISC-V (TODO: add link) processor is
-  likely the best target for Civboot. The z80 should not be overlooked for
-  initial designs though, as it requires only 9000 transistors to be produced
-  for a moderately capable CPU.
+- Once circuits can be constructed, a simple stack-based CPU like the [J1](J1)
+  is likely the best target for Civboot, as such CPUs can be produced with only
+  a few thousand transistors.
 
 [podcast 0002]: https://anchor.fm/civboot/episodes/0002---Could-a-community-produce-their-own-computer-chips-ejmum0)
 [silicone grains]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4640800/
@@ -325,6 +220,7 @@ extremely limited compared to modern computer hardware.
 [nanotube CPU]: https://www.sciencenews.org/article/chip-carbon-nanotubes-not-silicon-marks-computing-milestone
 [DARPA 3DSoC CNFET]: https://www.electronicsweekly.com/news/business/darpa-3dsoc-cnfet-project-moves-commercialisation-phase-2020-08/
 [CNFET in factories]: https://news.mit.edu/2020/carbon-nanotube-transistors-factory-0601
+[J1]: https://github.com/jamesbowman/j1
 
 
 **Computer Software**: CollapseOS.org gives a pretty good idea of how to get software
@@ -332,34 +228,26 @@ bootstrapped on basic hardware using only a few hundred lines of assembly and
 forth code. That OS fits on less than 5k, requires no binary blobs, and can cross
 compile to several other architectures. The Forth programming language is a
 primary driver of this simplicity. A (forth) compiler, basic file system, text
-editor, assembler and cross compiler was written largely by a single
-individual and runs on a computer chip with <9000 transistors from the 1970's.
+editor, assembler and cross compiler was written largely by a single individual
+and runs on a computer chip with <9000 transistors from the 1970's.
 
 The basic language stack for software is currently imagined to be:
+Forth OS / bootloader largely paralleling the design of CollapseOS.org, but probably
+using [typeforth][typeforth]. This work is [in progress](https://github.com/civboot/triforth),
+with a minimal forth language working, but it will undergo several redesigns
+before the next phase. The CivbootOS will use forth for all core software including
+filesystem, memory manager, (forth) shell, text editor, etc.  Very likely,
+severe restrictions will be put in place, like only being able to allocate up
+to 1KiB contiguous memory for most data structures.
 
-1.  Forth OS / bootloader largely paralleling CollapseOS's design
-1.  WASM compiler and WASI runtime written in Forth.
-1.  A stage0 compiler written in Forth for a higher level typed langage. I'm
-    working on my own language ([wheat](github.com/vitiral/wheat)) but would
-    love suggestions on a different language that meets these requirements.
-    This would (primarily) compile to wasm.
-1.  (possibly) A fully functional language written in the above which compiles
-    to wasm/wasi.
-
-Items 4 and 5 are likely only possible if the hardware is sufficiently
-advanced. Therefore early focus should be on forth + wasm + wheat/other. Using
-primarily Forth and wheat/other the following should be constructed:
-
-- Filesystem, memory manager, shell, etc. does not have to adhere to POSIX or
-  any such standard.
-- A vim-like text editor but with emacs-like extensibilty. A huge percentage of
-  software can be built using such a system as the primary interface.
-- CAD and board-layout software similar to [ImplicitCAD][ImplicitCAD], i.e.
-  does not require a GUI.
-- VLSI tool sufficient for Civboot's simple chips. Software-driven like the CAD
-  tool.
-- Communication: SPI, I2C, CAN-bus, ethernet should be sufficient. A ZigBee like
-  protocol would also be highly useful.
-
+On top of this OS, software should be written including CAD, board-layout and VLSI
+software similar to [ImplicitCAD][ImplicitCAD], i.e. does not require a GUI. In addition
+communication protocols will likely be similar (or identical) to the [PJON
+1-wire protocol][PJON] and Ham Radio, with minimal support for TCP/IP. Finally,
+a site-database can hold tutorials and educational software similar to [Khan
+Academy](https://www.khanacademy.org/), which can aid the self-learning of
+Civboot students.
 
 [ImplicitCAD]: https://github.com/colah/ImplicitCAD
+[typeforth]: https://typeforth.org
+[PJON]: https://github.com/gioblu/PJON
