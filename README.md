@@ -203,24 +203,19 @@ these designs. These two movements share a lot in common.
 
 **Computer Hardware**: the computer hardware manufactured will likely be
 extremely limited compared to modern computer hardware.
-- [podcast 0002][podcast 0002] ([show notes](podcasts/0002-semiconductor_fabrication.md))
-  focused on whether semiconductors can be built.
-- Basic requirements are to either simply the processing of Silicone (i.e.
-  [silicone grains][silicone grains]) or a different semiconductor material
-  (like Tin(II) Sulfide) and/or find a simpler process such as [nanotube
-  CPU][nanotube CPU]. See also [this][DARPA 3DSoC CNFET] and [this][CNFET in
-  factories].
+- [podcast 0002](podcasts/0002-semiconductor_fabrication.md) focused on whether
+  semiconductors can be built.
+- Basic requirements are to either simply the processing of Silicone or a
+  different semiconductor material (like Tin(II) Sulfide) and/or find a simpler
+  process such as [nanotube CPU].
 - This is the hardest piece of a civboot.
-- Once circuits can be constructed, a simple stack-based CPU like the [J1](J1)
-  is likely the best target for Civboot, as such CPUs can be produced with only
-  a few thousand transistors.
+- Once circuits can be constructed, a simple stack-based CPU like the [J1] is
+  likely the best target for Civboot, as such CPUs can be produced with only a
+  few thousand transistors.
 
 [podcast 0002]: https://anchor.fm/civboot/episodes/0002---Could-a-community-produce-their-own-computer-chips-ejmum0)
-[silicone grains]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4640800/
 [Impurity doping]: https://en.wikipedia.org/wiki/Wafer_(electronics)#Impurity_doping
 [nanotube CPU]: https://www.sciencenews.org/article/chip-carbon-nanotubes-not-silicon-marks-computing-milestone
-[DARPA 3DSoC CNFET]: https://www.electronicsweekly.com/news/business/darpa-3dsoc-cnfet-project-moves-commercialisation-phase-2020-08/
-[CNFET in factories]: https://news.mit.edu/2020/carbon-nanotube-transistors-factory-0601
 [J1]: https://github.com/jamesbowman/j1
 
 
