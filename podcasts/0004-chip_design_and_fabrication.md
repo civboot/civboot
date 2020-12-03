@@ -1,5 +1,11 @@
 # Episode 4: Designing and Fabricating a Civboot Integrated Circuit
 
+Download [here](./0004-chip_design_and_fabrication.mp3), watch on [youtube][youtube] or listen on
+[anchor][anchor] or wherever you get your podcasts.
+
+> This is the podcast component to the [blog](../blog/0004-chip_design_and_fabrication.md). It is
+> not respoken word-for-word writeup, but rather in the same spirit.
+
 A bit of introduction and explanation of why the gap between episodes
 (FPGA tangent, baby) and likely future direction.
 
@@ -27,10 +33,10 @@ precision for even the density of transistors that a Civboot would need.
 Basically, while this process is likely easier to accomplish than the growth of
 a pure semiconductor, it is far from easy. However, it is "easy" enough that a
 teenager managed to make a simple IC in his garage, albeit with expensive legacy
-tooling he acquired from ebay and other means (see [link][sam]).
+tooling he acquired from ebay and other means (see [link][Sam]).
 
 That's about all I'm going to cover this material for now. I'll leave you with
-this [11 minute overview][11 minute overview], which is far better than I could
+this [13 minute overview][13 minute overview], which is far better than I could
 ever do. Hopefully I will be able to do a more in-depth episode in the future.
 
 Before building your chip though, you must know what transistors you want to
@@ -52,8 +58,10 @@ meaning some of these processes may end up in the public domain in the future.
 - https://theopenroadproject.org/ EDA toolkit
   - https://github.com/efabless/openlane: builds on top for optimization.
 
-[sam]: http://sam.zeloof.xyz/first-ic/
-[11 minute overview]: https://www.youtube.com/watch?v=bor0qLifjz4&list=PL2hQEhelNFBCksNvTalLOvO0ZbW9S_dDk
+[anchor]: TODO
+[youtube]: https://youtu.be/TDKvXsTQvq4
+[Sam]: http://sam.zeloof.xyz/first-ic/
+[13 minute overview]: https://youtu.be/bor0qLifjz4
 [IceStorm]: http://www.clifford.at/icestorm/
 [FPGA tutorial]: https://github.com/Obijuan/open-fpga-verilog-tutorial/wiki
 [J1]: https://www.excamera.com/sphinx/fpga-j1.html

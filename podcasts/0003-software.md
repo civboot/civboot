@@ -3,8 +3,6 @@
 Download [here](./0003-software.mp3), watch on [youtube][youtube] or listen on
 [anchor][anchor] or wherever you get your podcasts.
 
-[anchor]: https://anchor.fm/civboot/episodes/0003---What-software-does-civilization-really-need-el9tb7
-[youtube]: https://youtu.be/BiiOA3vJgXI
 > This is the podcast component to the [blog](../blog/0003-software.md). It is
 > not respoken word-for-word writeup, but rather in the same spirit.
 
@@ -41,3 +39,6 @@ References:
 - https://archiveprogram.github.com/ - open source archive program
 - http://www.greenarraychips.com/ - creator of forth's chip factory
 - https://kestrelcomputer.github.io/kestrel/ - personal computer project OSS
+
+[anchor]: https://anchor.fm/civboot/episodes/0003---What-software-does-civilization-really-need-el9tb7
+[youtube]: https://youtu.be/BiiOA3vJgXI
