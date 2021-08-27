@@ -64,7 +64,7 @@ Civboot itself aims to provide only a working understanding.
 
 This project is NOT an attempt to "do this at home." Creating the first Civboot
 will no doubt require millions of dollars and the efforts of thousands of
-individuals to design, experiment, document and simplify a huge range of
+individuals to design, experiment, document and simplify a huge number of
 technologies which cross an extremely broad range of disciplines. The first
 Civboot will likely be made "distributed" (if it is ever made at all) -- with
 teams from all over the world sending their products to each other,
@@ -226,22 +226,17 @@ written largely by a single individual and runs on a computer chip with <9000
 transistors from the 1970's.
 
 The basic language stack for software is currently imagined to be: Forth OS /
-bootloader largely paralleling the design of CollapseOS, but probably using
-[typeforth][typeforth]. This work is [in
-progress](https://github.com/civboot/triforth), with a minimal forth language
-working, but it will undergo several redesigns before the next phase. The
-CivbootOS will use forth for all core software including filesystem, memory
-manager, (forth) shell, text editor, etc.  Very likely, severe restrictions
-will be put in place, like only being able to allocate up to 1KiB contiguous
-memory for most data structures.
+bootloader like CollapseOS. This will be used to build a new computer language
+[fngi](https://github.com/vitiral/fngi), which can be used to make the full OS
+and coding environment.
 
-On top of this OS, software should be written including CAD, board-layout and VLSI
-software similar to [ImplicitCAD][ImplicitCAD], i.e. does not require a GUI. In addition
-communication protocols will likely be similar (or identical) to the [PJON
-1-wire protocol][PJON] and Ham Radio, with minimal support for TCP/IP. Finally,
-a site-database can hold tutorials and educational software similar to [Khan
-Academy](https://www.khanacademy.org/), which can aid the self-learning of
-Civboot students.
+On top of this, software should be written including CAD, board-layout and VLSI
+software similar to [ImplicitCAD][ImplicitCAD], i.e. does not require a GUI. In
+addition communication protocols will likely be similar (or identical) to the
+[PJON 1-wire protocol][PJON] and Ham Radio, with minimal support for TCP/IP.
+Finally, a site-database can hold tutorials and educational software similar to
+[Khan Academy](https://www.khanacademy.org/), which can aid the self-learning
+of Civboot students.
 
 [Impurity doping]: https://en.wikipedia.org/wiki/Wafer_(electronics)#Impurity_doping
 [nanotube CPU]: https://www.sciencenews.org/article/chip-carbon-nanotubes-not-silicon-marks-computing-milestone
