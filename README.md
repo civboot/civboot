@@ -15,9 +15,12 @@ github repo should be used for discussion (through [opening an issue][issue]).
 I have also started a podcast. View it on [youtube][CB youtube] or listen on
 [anchor][CB anchor] or wherever you get your podcasts.
 
+I have also started writing [fiction][fiction].
+
 [issue]: https://github.com/civboot/civboot/issues
 [CB youtube]: https://www.youtube.com/channel/UCCYYcyLG3MAZahnoKLx3Aaw?view_as=subscriber
 [CB anchor]: https://anchor.fm/civboot
+[fiction]: https://github.com/civboot/fiction-civboot
 
 ## Introduction
 
