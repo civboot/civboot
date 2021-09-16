@@ -93,7 +93,7 @@ and we can only understand what we can create.
 
 You are probably thinking the _real_ goal of Civboot is to be able to survive
 an apocalypse-type scenario. This was indeed one of the inspirations for Civboot,
-and the project [CollapseOS](CollapseOS.org) was a motivation for the current
+and the project [CollapseOS](https://collapseos.org/) was a motivation for the current
 technology stack that Civboot is pursuing. I believe that thinking along
 "negative" outcomes such as "what happens if civilization collapses" is highly
 productive to creativity, growth and learning in much the same way as death and
@@ -216,7 +216,7 @@ extremely limited compared to modern computer hardware.
   likely the best target for Civboot, as such CPUs can be produced with only a
   few thousand transistors.
 
-**Computer Software**: [CollapseOS](CollapseOS.org) gives a pretty good idea of
+**Computer Software**: [CollapseOS](https://collapseos.org/) gives a pretty good idea of
 how to get software bootstrapped on basic hardware using only a few hundred
 lines of assembly and forth code. That OS fits on less than 5k, requires no
 binary blobs, and can cross compile to several other architectures. The Forth
