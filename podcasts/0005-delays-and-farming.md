@@ -1,4 +1,8 @@
-# Episode 5: delays and moving
+- Github audio: https://github.com/civboot/civboot/blob/main/podcasts/0005-delays-and-farming.flac
+- Anchor Podcast: https://anchor.fm/dashboard/episode/e18bimj
+- Youtube: https://youtu.be/eW2qNB_0YqA
+
+# Episode 5: delays and farming
 
 I have a few updates to make to the Civboot project. As I've said in the past, this is
 a lifetime aspirational goal for me, not something I'm going to complete in a year.
