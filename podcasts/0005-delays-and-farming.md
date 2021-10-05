@@ -54,4 +54,17 @@ I promise that this site/blog will not turn into some kind of journal on
 permaculture and agro-forestry. If I wanted to do that I would start a new
 channel!
 
+## Verbal Outline
+- A few updates, again note that this will go slowly.
+- I have transistioned to work remotely.
+- Now able to live on a small seven acre farm. Permaculture, agroforestry and
+  raising animals.
+- I've been building a new language called fngi, it isn't complete.
+- Talk a little about wasm and why it hasn't worked. I'm building my own IR
+- Talk a little about farming and living self-sufficiently.
+
+
+
 [uxnThoughts]: https://github.com/vitiral/fngi/blob/main/notes/fu.md
+
+
