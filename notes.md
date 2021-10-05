@@ -99,7 +99,10 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 *   [Rust layouts and ABIs](https://gankra.github.io/blah/rust-layouts-and-abis/): has some interesting details on what is required for rust to work at all
 *   [Adventures in Motion Control](http://adventures.michaelfbryan.com/posts/announcing-adventures-in-motion-control/): guide on creating a CNC simulator to understand how they work better
 *   NixOS is a bootstrapping operating system and build system where every component can be built from near scratch
-*   
+*   We'll want some kind of version control. Came across [ugit tutorial][ugit].
+    I don't think "git" is the version control we will have, ideally it would
+    be something more like sqlite's [fossil], but obviously would be rewritten
+    for simplicity in Civboot's language.
 
 ### Composting
 *   [Composting human waste][Composting human waste]: it seems that industrial
@@ -125,3 +128,6 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 [Pyrolosis of biosolids]: https://www.sciencedirect.com/science/article/pii/S0956053X18303313
 [Antibiotic eating bacteria]: https://medicine.wustl.edu/news/bacterias-appetite-may-be-key-to-cleaning-up-antibiotic-contaminated-environments/
 [Guidelines on feces]: http://www.ecosanres.org/pdf_files/ESR_Publications_2004/ESR2web.pdf
+[ugit]: https://www.fossil-scm.org/home/doc/trunk/www/index.wiki
+[fossil]: https://www.fossil-scm.org/home/doc/trunk/www/index.wiki
+
