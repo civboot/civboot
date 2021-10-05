@@ -92,6 +92,10 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
     *   [Jan 2019 Wiley Online Library overview of inkjet printing transistors](https://onlinelibrary.wiley.com/doi/full/10.1002/advs.201801445)
     *   2014 [A thin-film microprocessor with inkjet print-programmable memory](https://www.nature.com/articles/srep07398): 2.1kHz basic microprocessor
     *   Assuming these nanoparticles can be manufactured within the CivBoot, this is a realistic approach to micro processors!
+* [Good overview](https://www.youtube.com/watch?v=NGFhc8R_uO4), discusses some
+  of the complexities with lithography at the tiny processor size in current
+  use. This brings up _some_ of the kinds of issues a Civboot would have to
+  face.
 
 
 ### Computer Software
