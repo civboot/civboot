@@ -45,7 +45,7 @@ here's some code.
 ---
 ```
 
-If you need to "escape" the control, use \\
+If you need to "escape" the control, use `\\`
 
 ```
 \\ \code this is not code, but rather regular text.
@@ -59,7 +59,7 @@ If you need to "escape" the control, use \\
 \\     before the words
 ```
 
-You can also name blocks with # which appear as a global variable in fngi.
+You can also name blocks with `#` which appear as a global variable in fngi.
 If you'd like to name some plain text
 
 ```
@@ -70,7 +70,7 @@ variable `mytext` the same way it would be rendered (as one line).
 ```
 
 So far, we havn't written any code that would actually run, just "code blocks".
-To write fngi code that runs you use \fngi
+To write fngi code that runs you use `\fngi`
 
 ```
 \fngi @f_start ---
