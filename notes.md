@@ -81,6 +81,11 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
    multi-core processor. It should also be possible to store at least 1GiB
    on some kind of storage medium. These numbers seem impossible though,
    as even 256MiB of RAM required 100nm processes (at least).
+* Some rays of hope. [Tin Thin Film Transistors][Tin TFT] made directly on
+  glass using only low temperature processes, which _may_ be replicatabeable by a
+  Civboot at first glance (PECVD and RF sputtering). It looks like the
+  characteristics are _extremely_ good as well. [This book][Tin Book] seems
+  like a decent reference.
 * From what I've seen of semiconductor fabrication, in order to create a
   self-replicating machine which is simple we likely need to _invent_ a
   different material/process which is specifically for this purpose.
@@ -108,30 +113,10 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
     be something more like sqlite's [fossil], but obviously would be rewritten
     for simplicity in Civboot's language.
 
-### Composting
-*   [Composting human waste][Composting human waste]: it seems that industrial
-    facilities pre-heat the input to kill any bacteria.
-*   [Anerobic space food][Anerobic space food]
-*   [Bugs in composting](http://compost.css.cornell.edu/invertebrates.html)
-*   [Aenerobic digestion][Aenerobic digestion] converts waste into usable
-    fertilizer without the need for oxygen or heat-treatment
-*   [Aenerobic FAQs UoMch][Aenerobic FAQs UoMch]: kills bacteria, although not
-    100%. Separates liquids from solids. Creates 
-*   [Pyrolosis of biosolids][Pyrolosis of biosolids]: effective method for
-    removing waste from biosolids... but also completely destroys it's use for
-    farming.
-*   [Antibiotic eating bacteria][Antibiotic eating bacteria]
-*   [Guidelines on feces][Guidelines on feces]
-
+[Tin TFT]: https://www.nature.com/articles/s41598-019-53766-2
+[Tin Book]: https://www.amazon.com/Tin-Oxide-Materials-Properties-Applications/dp/0128159243/ref=sr_1_1?dchild=1&keywords=Tin+Oxide+Materials+book&qid=1634793705&sr=8-1
 [BBVA Open Mind]: https://www.bbvaopenmind.com/en/about-us/
-[Composting human waste]: https://www.gardeningknowhow.com/composting/ingredients/composting-human-waste.htm#:~:text=Composting%20human%20waste%20is%20risky,humanure%20systems%20are%20rarely%20approved.
-[Anerobic space food]: https://www.independent.co.uk/news/science/astronauts-food-human-waste-marmite-iss-international-space-station-nasa-a8179451.html
-[Aenerobic digestion]: https://www.epa.gov/agstar/how-does-anaerobic-digestion-work
-[Aenerobic FAQs UoMch]: https://www.michigan.gov/documents/anaerobic_digester_FAQs_2005_137431_7.pdf
 [Methanotroph]: https://en.wikipedia.org/wiki/Methanotroph
-[Pyrolosis of biosolids]: https://www.sciencedirect.com/science/article/pii/S0956053X18303313
-[Antibiotic eating bacteria]: https://medicine.wustl.edu/news/bacterias-appetite-may-be-key-to-cleaning-up-antibiotic-contaminated-environments/
-[Guidelines on feces]: http://www.ecosanres.org/pdf_files/ESR_Publications_2004/ESR2web.pdf
 [ugit]: https://www.fossil-scm.org/home/doc/trunk/www/index.wiki
 [fossil]: https://www.fossil-scm.org/home/doc/trunk/www/index.wiki
 
