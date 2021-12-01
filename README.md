@@ -197,11 +197,11 @@ these designs. These two movements share a lot in common.
  - Vehicles: tractor, bulldozer, etc
 - Manufacturing:
   - Materials creation: blast furnace, forge, brick builder, plastic (like)
-    material synthesis, etc 
+    material synthesis, etc
   - Fabrication: CNC machine, 3D printer (multi-material), lathe, etc
 - Energy:
   - Power Usage: electric motor (+generator)
-  - Power Generation: Steam generator, wind
+  - Power Generation: Steam generator, wind, heat exchanger (sterling engine)
   - Power Storage: battery, steam storage, gravity storage
 
 **Computer Hardware**: the computer hardware manufactured will likely be
@@ -210,11 +210,13 @@ extremely limited compared to modern computer hardware.
   semiconductors can be built.
 - Basic requirements are to either simply the processing of Silicone or a
   different semiconductor material (like Tin(II) Sulfide) and/or find a simpler
-  process such as [nanotube CPU].
+  process such as [nanotube CPU]. There is some hope in [Thin Film
+  Transistors](https://www.nature.com/articles/s41598-019-53766-2) which can be
+  made on glass (NOT pure silicone) using low-temperature processes.
 - This is the hardest piece of a civboot.
-- Once circuits can be constructed, a simple stack-based CPU like the [J1] is
-  likely the best target for Civboot, as such CPUs can be produced with only a
-  few thousand transistors.
+- Once circuits can be constructed, a simple stack-based CPU like the [J1] or
+  the [scamp-cpu] is likely the best target for Civboot, as such CPUs can be
+  produced with only a few thousand transistors.
 
 **Computer Software**: [CollapseOS](https://collapseos.org/) gives a pretty good idea of
 how to get software bootstrapped on basic hardware using only a few hundred
@@ -241,6 +243,7 @@ of Civboot students.
 [Impurity doping]: https://en.wikipedia.org/wiki/Wafer_(electronics)#Impurity_doping
 [nanotube CPU]: https://www.sciencenews.org/article/chip-carbon-nanotubes-not-silicon-marks-computing-milestone
 [J1]: https://github.com/jamesbowman/j1
+[scamp-cpu]: https://github.com/jes/scamp-cpu
 [ImplicitCAD]: https://github.com/colah/ImplicitCAD
 [typeforth]: https://typeforth.org
 [PJON]: https://github.com/gioblu/PJON
