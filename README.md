@@ -208,7 +208,7 @@ these designs. These two movements share a lot in common.
 extremely limited compared to modern computer hardware.
 - [podcast 0002](podcasts/0002-semiconductor_fabrication.md) focused on whether
   semiconductors can be built.
-- Basic requirements are to either simply the processing of Silicone or a
+- Basic requirements are to either simplify the processing of Silicone or a
   different semiconductor material (like Tin(II) Sulfide) and/or find a simpler
   process such as [nanotube CPU]. There is some hope in [Thin Film
   Transistors](https://www.nature.com/articles/s41598-019-53766-2) which can be
