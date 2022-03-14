@@ -12,12 +12,19 @@ is to act as a version-controlled wiki for all efforts related to Civboot.
 This effort was started on 2019-11-14 and is still very early stage. This
 github repo should be used for discussion (through [opening an issue][issue]).
 
-I have also started a podcast. View it on [youtube][CB youtube] or listen on
-[anchor][CB anchor] or wherever you get your podcasts.
+Podcast
+- View it on [youtube][CB youtube] or listen on [anchor][CB anchor] or wherever
+  you get your podcasts.
+
+Software:
+- [fngi][fngi]: a self-bootstrapping low level language and OS.
+  - [zoa][zoa]: serialized structured data and it's textual representation.
 
 [issue]: https://github.com/civboot/civboot/issues
 [CB youtube]: https://www.youtube.com/channel/UCCYYcyLG3MAZahnoKLx3Aaw?view_as=subscriber
 [CB anchor]: https://anchor.fm/civboot
+[fngi]: http://github.com/civboot/fngi
+[zoa]: http://github.com/vitiral/zoa
 
 ## Introduction
 
@@ -184,9 +191,9 @@ A Civboot...
 The following is an effort to compile what is needed to construct a Level 1
 Civboot and the current status.
 
-**General Tools and Equipment (non computer)**: See
-[Open Source Ecology](https://www.opensourceecology.org/gvcs/) for current work on many of
-these designs. These two movements share a lot in common.
+**General Tools and Equipment (non computer)**: See 
+[Open Source Ecology](https://www.opensourceecology.org/gvcs/) for current work
+on many of these designs. These two movements share a lot in common.
 
 - Human Tools and Equipment:
  - Hand tools: saw, hammer, axe, shovel, pickaxe, etc
@@ -215,27 +222,27 @@ extremely limited compared to modern computer hardware.
   the [scamp-cpu] is likely the best target for Civboot, as such CPUs can be
   produced with only a few thousand transistors.
 
-**Computer Software**: [CollapseOS](https://collapseos.org/) gives a pretty good idea of
-how to get software bootstrapped on basic hardware using only a few hundred
-lines of assembly and forth code. That OS fits on less than 5k, requires no
-binary blobs, and can cross compile to several other architectures. The Forth
-programming language is a primary driver of this simplicity. A (forth)
-compiler, basic file system, text editor, assembler and cross compiler was
-written largely by a single individual and runs on a computer chip with <9000
-transistors from the 1970's.
+**Computer Software**: [fngi][fngi] is the current development path being
+pursued for Civboot software. It is a self-bootstrapping language and
+(optionally) OS. 
 
-The basic language stack for software is currently imagined to be: Forth OS /
-bootloader like CollapseOS. This will be used to build a new computer language
-[fngi](https://github.com/vitiral/fngi), which can be used to make the full OS
-and coding environment.
+[CollapseOS](https://collapseos.org/) demonstrates that a
+self-bootstrapping OS is possible on extremely minimal hardware, it uses only a
+few hundred lines of assembly to bootstrap a FORTH. CollapseOS fits on less than
+5k, requires no binary blobs, and can cross compile to several other
+architectures. The Forth programming language is a primary driver of this
+simplicity. A (forth) compiler, basic file system, text editor, assembler and
+cross compiler was written largely by a single individual and runs on a computer
+chip with <9000 transistors from the 1970's.
 
-On top of this, software should be written including CAD, board-layout and VLSI
-software similar to [ImplicitCAD][ImplicitCAD], i.e. does not require a GUI. In
-addition communication protocols will likely be similar (or identical) to the
-[PJON 1-wire protocol][PJON] and Ham Radio, with minimal support for TCP/IP.
-Finally, a site-database can hold tutorials and educational software similar to
-[Khan Academy](https://www.khanacademy.org/), which can aid the self-learning
-of Civboot students.
+On top of fngi, software will be written including OS, shell, text editor,
+programatic (aka non-graphical) CAD similar to [ImplicitCAD][ImplicitCAD],
+board-layout and VLSI software. Eventually a simple communication protocol
+will be developed and over something like [PJON 1-wire protocol][PJON] and Ham
+Radio, with minimal support for TCP/IP. Finally, a small database can hold
+tutorials and educational software similar to a text-based
+[Khan Academy](https://www.khanacademy.org/), which can aid the self-learning of
+Civboot students.
 
 [Impurity doping]: https://en.wikipedia.org/wiki/Wafer_(electronics)#Impurity_doping
 [nanotube CPU]: https://www.sciencenews.org/article/chip-carbon-nanotubes-not-silicon-marks-computing-milestone
