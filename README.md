@@ -39,7 +39,7 @@ technology by simplifying technology's requirements. Fundamentally Civboot is
 an educational tool: it can provide a working understanding of the tools and
 processes that underpin our technology. Putting the question another way, if
 there were a high-school & college curriculum with the sole goal of
-accomploshing "project based learning" of having the entire class (400+
+accomplishing "project based learning" of having the entire class (400+
 students) understand and reconstruct a Civboot using only the tools within the
 Civboot; how many people would that be, how large would the warehouse be and
 how many instructors would be required?
@@ -47,7 +47,7 @@ how many instructors would be required?
 This is the fundamental question of Civboot, a project which aims to reduce the
 tools and knowledge necessary to bootstrap modern civilization as much as
 possible. It is important to point out early that a Civboot does _not_ contain
-everything required to build or support Civilization such as food, clothing or
+everything required to build or support civilization such as food, clothing or
 a bed; in the same way as a bootstrapper for an operating system does not
 contain all the bells and whistles of the operating system itself. A Civboot
 only contains the tools and knowledge necessary to build computers and itself.
@@ -66,9 +66,9 @@ chemistry, mechanical engineering, etc can take potentially a lifetime of
 learning. It is hoped that Civboot can be a foundation for that learning, but
 Civboot itself aims to provide only a working understanding.
 
-This project is NOT an attempt to "do this at home." Creating the first Civboot
-will no doubt require millions of dollars and the efforts of thousands of
-individuals to design, experiment, document and simplify a huge number of
+This project is NOT an attempt to DIY or  "do this at home." Creating the first
+Civboot will no doubt require millions of dollars and the efforts of thousands
+of individuals to design, experiment, document and simplify a huge number of
 technologies which cross an extremely broad range of disciplines. The first
 Civboot will likely be made "distributed" (if it is ever made at all) -- with
 teams from all over the world sending their products to each other,
@@ -138,7 +138,8 @@ except as to apply to the goal of creating the first Civboot.
 A Civboot...
 
 - **Must** be entirely free and open.
-  - **Must not** contain proprietary or hidden designs, i.e. no "binary blobs"
+  - **Must not** contain proprietary or hidden designs, i.e. no "binary blobs",
+    no undocumented schematics, etc.
 - **Must** be possible to build itself from itself
   - Requires no outside knowledge besides the language which the guides are
     written in
@@ -160,9 +161,9 @@ A Civboot...
       knowledge where possible.
   - **May** include some amount of history of
     math/science/engineering/philosophy which is required to properly
-    understand a component.
+    understand an idea/component and its tradeoffs.
 - **Should** be as simple as possible but no simpler.
-  - Comfort has almost no importance, unless it hinders use excessively
+  - Comfort has almost no importance, unless it excessively hinders use.
   - Easy as possible to re-learn and re-create from near-scratch
 - **Should** be as efficient as possible
   - Require as few materials / space / energy necessary to achieve its purpose.
@@ -238,7 +239,7 @@ chip with <9000 transistors from the 1970's.
 On top of fngi, software will be written including OS, shell, text editor,
 programatic (aka non-graphical) CAD similar to [ImplicitCAD][ImplicitCAD],
 board-layout and VLSI software. Eventually a simple communication protocol
-will be developed and over something like [PJON 1-wire protocol][PJON] and Ham
+will be developed over something like [PJON 1-wire protocol][PJON] and Ham
 Radio, with minimal support for TCP/IP. Finally, a small database can hold
 tutorials and educational software similar to a text-based
 [Khan Academy](https://www.khanacademy.org/), which can aid the self-learning of
