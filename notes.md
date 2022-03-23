@@ -8,10 +8,6 @@ steps
 **Village Toolset a.k.a. [Open Source
 Ecology](https://www.opensourceecology.org/gvcs/)**
 
-
-
-
-
 *   Basically wikipedia [list of steps](https://en.wikipedia.org/wiki/Semiconductor_device_fabrication#List_of_steps)
 *   Manufacturing: wafer, circuit board printing, chemical production, electrical wire, electrical and data connectors, display manufacturing (simple display, possibly pixel-based), input devices (aka keyboard)
 *   Electronics manufacturing: photolithography, silicone doping, Gate production, CPU, RAM, FPGA, Disk Storage, etc
@@ -105,14 +101,17 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 
 ### Computer Software
 *   https://bootstrappable.org/
+*   [QBE](https://c9x.me/compile/) backend with load of useful docs, references
+    and philosophy.
+    - About 9048 lines of code in the main and amd64 directories.
+    - [cproc](https://git.sr.ht/~mcf/cproc) a tiny (5k LoC!) C compiler that
+      uses QBE as the backend.
 *   [Rust layouts and ABIs](https://gankra.github.io/blah/rust-layouts-and-abis/): has some interesting details on what is required for rust to work at all
-*   [Adventures in Motion Control](http://adventures.michaelfbryan.com/posts/announcing-adventures-in-motion-control/): guide on creating a CNC simulator to understand how they work better
-*   NixOS is a bootstrapping operating system and build system where every component can be built from near scratch
+*   [Adventures in Motion Control][AIMC]: guide on creating a CNC simulator to
+    understand how they work better
 *   We'll want some kind of version control. Came across [ugit tutorial][ugit].
-    I don't think "git" is the version control we will have, ideally it would
-    be something more like sqlite's [fossil], but obviously would be rewritten
-    for simplicity in Civboot's language.
 
+[AIMC]: http://adventures.michaelfbryan.com/posts/announcing-adventures-in-motion-control/
 [Tin TFT]: https://www.nature.com/articles/s41598-019-53766-2
 [Tin Book]: https://www.amazon.com/Tin-Oxide-Materials-Properties-Applications/dp/0128159243/ref=sr_1_1?dchild=1&keywords=Tin+Oxide+Materials+book&qid=1634793705&sr=8-1
 [BBVA Open Mind]: https://www.bbvaopenmind.com/en/about-us/
