@@ -18,8 +18,6 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 
 **Computer Software**: must be simplified to be runnable on the hardware available in previous steps, but must be powerful enough to model and build the hardware in previous process.
 
-
-
 *   Operating system: linux-like
 *   Compiler toolchain
 *   Text editor: vim, emacs, other?
