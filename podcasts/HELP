@@ -1,0 +1,5 @@
+Extract audio from a video:
+
+```
+ffmpeg -i 0006-complexity.mp4 0006-complexity.flac
+```
