@@ -1,3 +1,6 @@
+> Watch or listen to a podcast of this content. See
+> [here](../podcasts/0006-complexity-in-technology.md)
+
 # The Usefulness of Complexity
 > Author: Rett Berg (vitiral)
 
