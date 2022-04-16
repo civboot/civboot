@@ -108,6 +108,8 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 *   [Adventures in Motion Control][AIMC]: guide on creating a CNC simulator to
     understand how they work better
 *   We'll want some kind of version control. Came across [ugit tutorial][ugit].
+* Some kind of database and query language. The [D database language] seems like an
+  excellent resource.
 
 [AIMC]: http://adventures.michaelfbryan.com/posts/announcing-adventures-in-motion-control/
 [Tin TFT]: https://www.nature.com/articles/s41598-019-53766-2
@@ -116,4 +118,5 @@ Ecology](https://www.opensourceecology.org/gvcs/)**
 [Methanotroph]: https://en.wikipedia.org/wiki/Methanotroph
 [ugit]: https://www.fossil-scm.org/home/doc/trunk/www/index.wiki
 [fossil]: https://www.fossil-scm.org/home/doc/trunk/www/index.wiki
+[D database language]: https://www.dcs.warwick.ac.uk/~hugh/TTM/DTATRM.pdf
 
