@@ -1,11 +1,5 @@
 # Civboot: a civilizational bootstrapper
 
-_What I cannot create, I do not understand_ - on the blackboard of Richard P.
-Feynman at the time of his death.
-
-_Everything should be made as simple as possible, but no simpler._ -- Albert
-Einstein
-
 This is the repository for Civboot: a Civilizational Bootstrapper. It's purpose
 is to act as a version-controlled wiki for all efforts related to Civboot.
 
