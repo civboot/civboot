@@ -20,7 +20,13 @@ Very much a gui-based system.
   works...
   * Oh, it does have interrupts... but only in the "drivers". So it's not
     _really_ a single-thread system.
+* Page 21, yes indeed it is <10,000 lines of code. Also the full system may in
+  fact use less than 64KiB of memory (although this might just be globals?).
 
-**Bookmark 2.2.4**
+Otherwise this is mostly an overview of what the book will discuss
+
+## Chapter 3 (page 26): The tasking system
+
+**Bookmark 3.0**
 
 
