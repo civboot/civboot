@@ -27,6 +27,9 @@ Otherwise this is mostly an overview of what the book will discuss
 
 ## Chapter 3 (page 26): The tasking system
 
-**Bookmark 3.0**
+Mostly just more information regarding the task scheduler and how it is just a
+simple loop. Pretty neato. There are two task types: background and interactive.
+The main loop prioritizes interactive. There is a trap handler
 
+**Bookmark 4.2**
 
