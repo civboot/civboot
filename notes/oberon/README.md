@@ -31,5 +31,31 @@ Mostly just more information regarding the task scheduler and how it is just a
 simple loop. Pretty neato. There are two task types: background and interactive.
 The main loop prioritizes interactive. There is a trap handler
 
-**Bookmark 4.2**
+## Chapter 4
 
+Wow, way too much focus on UI. Moving to chapter 5.
+
+## Chapter 5: text system
+
+I like this:
+
+> There are many reasons for the popularity of text in general and in connection
+> with computers in particular. To name but a few: Text containing any arbitrary
+> amount of information can be built from a small alphabet of widely
+> standardized elements (characters), their building pattern is extremely simple
+> (lining up elements), and the resulting structure is most elementary (a
+> sequence). And perhaps most importantly, syntactically structured text can be
+> parsed and interpreted by a machine. 
+
+
+* Conventional operating systems neither feature an integrated management nor an
+  abstract programming interface (API) for texts.
+
+How text is in memory:
+
+> Representing characters as pairs (font, ref), where font designates a font and
+> ref the character's ASCII-code and adding two more attributes color and
+> vertical offset, we get to a quadruple representation (font, ref, col, voff)
+> of characters.
+
+**Bookmark page 57**
