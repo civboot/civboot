@@ -1,4 +1,5 @@
-# Civboot: a civilizational bootstrapper
+# Civboot: <img src="Civboot.png" alt="civboot" width="30"/> a civilizational bootstrapper <img src="Civboot.png" alt="civboot" width="30"/>
+
 
 This is the repository for Civboot: a Civilizational Bootstrapper. It's purpose
 is to act as a version-controlled wiki for all efforts related to Civboot.
