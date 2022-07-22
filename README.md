@@ -22,6 +22,8 @@ Software:
 
 ## Introduction
 
+![chemicals](https://imgs.xkcd.com/comics/chemicals.png)
+
 How large would a warehouse have to be in order to both:
 
 1. Build simple computers in a semi-autonomous way from scratch using only
