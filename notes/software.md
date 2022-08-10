@@ -9,6 +9,20 @@
 * Some kind of database and query language. The [D database language] seems like an
   excellent resource.
 
+Language Inspiration
+* TCL is a cool language. I'm not sold on the "everything is a string" but it
+  certainly does it far better than ba(sh).
+  - [TCL The Misunderstood](http://antirez.com/articoli/tclmisunderstood.html)
+    was a fun read. I think basing the macro system (partly) on how TCL does it
+    makes some sense. This would map quite easily to fngi, which could expand
+    a string template and set the compiler object until it's compiled quite
+    seamlessly.
+  - Pure [TCL editor](https://github.com/slebetman/tcled/blob/master/tcled) in
+    ~3k lines.
+
+Data structures:
+- Ultra-lean [hash table](https://nullprogram.com/blog/2022/08/08/)
+
 [AIMC]: http://adventures.michaelfbryan.com/posts/announcing-adventures-in-motion-control/
 [ugit]: https://www.fossil-scm.org/home/doc/trunk/www/index.wiki
 [fossil]: https://www.fossil-scm.org/home/doc/trunk/www/index.wiki
