@@ -1,3 +1,9 @@
+
+Awesome projects
+
+* https://simplifier.neocities.org/: a truly awesome list of simpler ways to
+  accomplish necessary tasks.
+
 ## Basic Concepts
 [Good quick video overview](https://www.youtube.com/watch?v=NGFhc8R_uO4),
 discusses some of the complexities with lithography at the tiny processor size
