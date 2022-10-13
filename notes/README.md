@@ -2,7 +2,9 @@
 ## Free reference material
 
 *   https://bootstrappable.org/
-*   [Stack Computers the new Wave](https://users.ece.cmu.edu/~koopman/stack_computers/index.html): recommended to me, not yet seen
+*   [Stack Computers the new
+    Wave](https://users.ece.cmu.edu/~koopman/stack_computers/index.html):
+    recommended to me, not yet seen
 *   [Open Source Ecology](https://www.opensourceecology.org/gvcs/)
 *   [QBE](https://c9x.me/compile/) backend with load of useful docs, references
     and philosophy.

@@ -3,6 +3,9 @@ Awesome projects
 
 * https://simplifier.neocities.org/: a truly awesome list of simpler ways to
   accomplish necessary tasks.
+* [scamp-cpu]
+
+[scamp-cpu]: https://github.com/jes/scamp-cpu
 
 ## Basic Concepts
 [Good quick video overview](https://www.youtube.com/watch?v=NGFhc8R_uO4),
@@ -34,8 +37,8 @@ have to face.
     integrated circuit chips from MOS Technology
 
 
-## Thin Thin Film Transistors
-[Tin Thin Film Transistors][Tin TFT] made directly on glass using only low
+## Thin Film Transistors {#thin-film}
+[Thin Film Transistors][Tin TFT] made directly on glass using only low
 temperature processes, which _may_ be replicatabeable by a Civboot at first
 glance (PECVD and RF sputtering). It looks like the characteristics are
 _extremely_ good as well. [This book][Tin Book] seems like a decent reference.
