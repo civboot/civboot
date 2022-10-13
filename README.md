@@ -78,8 +78,9 @@ bullet points are not currently being worked on directly.
     * [X] <1k line C file bootstrapps spor assembly language and runtime
     * [X] <1k lines of spor bootstrapps fngi syntax
     * [X] <1k lines of fngi bootstrapps core syntax elements (`fn`, `if`,
-      `loop`, etc)
-  * [ ] A fngi std library (string, regex, data structures, etc)
+      `loop`, `struct`)
+    * [ ] a type checker
+  * [ ] A fngi std library (string, regex, core data structures, zoa, etc)
 * [ ] Minimalist Operating System with core utilities. Again, each tool should
   ideally contain only a few thousand lines of code. *As simple as possible but
   no simpler*
