@@ -79,8 +79,8 @@ bullet points are not currently being worked on directly.
     * [X] <1k lines of spor bootstrapps fngi syntax
     * [X] <1k lines of fngi bootstrapps core syntax elements (`fn`, `if`,
       `loop`, `struct`)
-    * [ ] a type checker
-  * [ ] A fngi std library (string, regex, core data structures, zoa, etc)
+    * [ ] type checking
+    * [ ] std library (string, regex, core data structures, zoa, etc)
 * [ ] Minimalist Operating System with core utilities. Again, each tool should
   ideally contain only a few thousand lines of code. *As simple as possible but
   no simpler*
@@ -102,10 +102,12 @@ bullet points are not currently being worked on directly.
         [PJON][PJON] provides inspiration
 * [ ] A reduced (only what's necessary for Civboot) version of the [Global
   Village Construction Set][OSE] and built using Civboot software
-* [ ] Photo Optics (lenses) construction and use
-* [ ] Precision Engineering construction and use
-* [ ] Electronics (non-semiconductor) fabrication
-* [ ] Semiconductor fabrication
+* [ ] Photo Optics (lenses) fabrication and working knowledge.
+* [ ] Precision Engineering fabrication and working knowledge. Simplifying this into working
+* [ ] Electronics (non-semiconductor) fabrication and working knowledge (Electrical
+  Engineering)
+* [ ] Semiconductor fabrication and working knowledge (Electrical Engineering,
+  Circuit Design, etc)
   * [ ] A stack-based CPU built using FPGA and modern fabs, the [J1][J1]
     provides some inspiration.
   * [ ] Working [TFT][TFT] transistor fabrication.
