@@ -1,17 +1,19 @@
 # Civboot: <img src="Civboot.png" alt="civboot" width="30"/> a civilizational bootstrapper <img src="Civboot.png" alt="civboot" width="30"/>
 
-Civboot: a self-bootstrapping (self-replicating) technology stack for modern
-civilization.
+Civboot: a self-bootstrapping technology stack for modern civilization.
+
+What is a Civboot? Imagine a factory capable of building a minimalist
+general-purpose personal computer, like something from the 80's/90's or better.
+A Civboot factory is one which can build such a factory from raw materials.
 
 Today's technology stack and supply chain are too large and complex to be able
-to reproduce or understand from books or working examples.
+to reproduce or understand from books or working examples.  Simplifying parts of
+our technology stack has many benefits:
 
-Simplifying parts of our technology stack has many benefits:
-
-1. It provides a learning reference which can be extrapolated from.
-2. It creates a base to modify and branch new ideas.
-3. It allows adaptability if supply chains are disrupted or resources are
-   scarce, especially in places with fewer resources.
+1. Provides a learning reference which can be extrapolated from.
+2. Creates a base to modify and branch new ideas.
+3. Allows adaptability if supply chains are disrupted or resources are scarce,
+   especially in places with fewer resources.
 
 The goal of Civboot is to follow the bellow process for each technology stack
 (i.e. software, precision engineering, semiconductor fabrication, etc):
@@ -19,7 +21,7 @@ The goal of Civboot is to follow the bellow process for each technology stack
 1. Reduce its complexity to something more replicatable and understandable.
 2. Build a working system from as simple of tools as possible.
 3. Document that system and its construction.
-4. Repeat
+4. Repeat until it can rebuild itself.
 
 The above should be continued for all technology stacks required to build the
 crown jewel of justified complexity in our Civilization: the computer.
