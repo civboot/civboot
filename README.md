@@ -139,6 +139,9 @@ is to act as a version-controlled wiki for all efforts related to Civboot.
 This effort was started on 2019-11-14 and is still very early stage. This
 github repo should be used for discussion (through [opening an issue][issue]).
 
+Chat on
+[discord](https://discord.com/channels/1083089060765118464/1083089061553639477)
+
 Podcast
 * View it on [youtube][CB youtube]
 * Listen on [anchor][CB anchor] or wherever you get your podcasts.
