@@ -14,7 +14,7 @@ also be released shortly.
 
 Each section will be flushed out with their own post/podcast in the future.
 
-[civboot.org]: http://civboot.org
+[Civboot]: http://civboot.org
 
 ## Introduction
 
@@ -68,10 +68,10 @@ although the programmer can disable that (at the loss of some functionality) or
 directly alter the type system using syn functions (aka macros) -- we'll get to
 that.
 
-Types include structs and enums (rust Sum types). Structs are exactly like C
-structs: they let you package a set of named types such as integers or other
-structs. Enums are like Rust enums: they are a value which contains exactly one
-of some set of types.
+Types include structs and enums. Structs are exactly like C structs: they let
+you package a set of named types such as integers or other structs into your own
+type. Enums are like Rust enums: they are a value which contains exactly one of
+some set of types.
 
 ```
 struct MyStruct [ a: U4;  b: U2;  c: &MyStruct ]
@@ -85,8 +85,8 @@ enum MyEnum [
 ```
 
 ### Data Ineritance (a.k.a. single inheritance light)
-Fngi also has single inheritance.  Like many things in fngi inheritance is
-similar to, but drastically more constrained than, other languages like C++ or
+Fngi also has single inheritance.  Like many things in fngi, inheritance is
+similar to but drastically more constrained than other languages like C++ or
 Java. In fngi it is absurdly simple: if `Child` is a child of `Parent`, then
 `Child` simply has the exact same fields as `Parent` at its beginning -- plus it
 can have its own fields after the parent.  This means you can safely convert a
@@ -108,11 +108,10 @@ struct StrBuf [ parent: Str;  cap: U2 ]
 ### Roles (a.k.a. interfaces light)
 
 Fngi also has something very similar to runtime [interfaces]: it calls them
-"roles" (a.k.a. a struct or enum can "play a role"). A role (as passed in a
-function) is nothing but a struct containing two fields: a pointer to methods
-and a pointer to data. The methods must take the data pointer as their first
-value. The compiler knows how to convert `myRoleLocal.myMethod(1, 2)` into the
-correct pointers.
+"roles" (a.k.a. a struct or enum can "play a role"). A role value is just a
+struct containing two fields: a pointer to methods + a pointer to data. The
+methods must take the data pointer as their first value. The compiler knows how
+to convert `myRoleLocal.myMethod(1, 2)` into the correct pointers.
 
 [interfaces]: https://en.wikipedia.org/wiki/Interface_(object-oriented_programming)
 
@@ -145,9 +144,9 @@ implement Resource for UnixFile {
 
 ### Syn Functions (a.k.a. macros heavy)
 Perhaps fngi's most extreme feature is it's syn functions which create an ultra
-powerful (and dangerous!) macro system known as "syn functions" which can:
+powerful (and dangerous!) macro system which can:
 
-* Call any fully implemented fngi function and access defined global variables.
+* Call any fngi function and read/modify defined global variables.
 * Control the parser, including parsing tokens or custom syntax.
 * Write bytecode directly to the current "code" location. Bytecode is a virtual
   machine language called "spor".
@@ -155,11 +154,10 @@ powerful (and dangerous!) macro system known as "syn functions" which can:
   macros to generate different code depending on types or syntax.
 
 This goes way beyond the text-based macros of languages like C (although Rust
-has [something similar][rust-procedural]). You can implement things like while
-loops, switch-case statements or even a text-macro definition function using syn
-functions. Almost any feature you think fngi is missing can be implemented in a
-library, with nearly full access to the compiler intrinsics available to the
-fngi compiler.
+has [something similar][rust-procedural]). You can implement things like `while`
+loops, `switch/case` statements or even define your own way to create c-like
+text macros. Almost any feature you think fngi is missing can be implemented in a
+library, with nearly full access to any compiler or type intrinsics.
 
 [rust-procedural]: https://doc.rust-lang.org/reference/procedural-macros.html
 
@@ -172,10 +170,9 @@ requires only a maximum contiguous memory of 4KiB blocks -- something which can
 be trivially implemented on a microcontroller.
 
 In general, fngi is designed so that even it's "dynamic" libraries can work well
-on very minimalist hardware, meaning it is possible to build software which does
+on very minimalist hardware, meaning it is easy to build software which does
 dynamic things (like write and compile programs) on minimalist hardware.
 
-Fngi's use of roles instead of syscalls or function templates makes the
-abstraction of the "operating system" and a program simpler and easier to test
-for functions that use them.
+Fngi's use of roles makes the abstraction of the "operating system" and a
+program simpler and easier to test.
 
