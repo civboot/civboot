@@ -1,3 +1,8 @@
+*Download on
+[anchor](https://podcasters.spotify.com/pod/dashboard/episode/e23iq6a)
+or wherever you get your podcasts, or watch on
+[youtube](https://www.youtube.com/watch?v=5Kq1zlYtXwg).*
+
 # Fngi Intro
 
 Announcement: I have finally started to write [fngi] code!
