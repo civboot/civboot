@@ -2,16 +2,27 @@
 
 Civboot: a self-bootstrapping technology stack for modern civilization.
 
+> Want to share your thoughts or ask questions? Feel free to open an issue here
+> or [join us on discord][discord].
+
 What is a Civboot? Imagine a factory capable of building a minimalist
 general-purpose personal computer, like something from the 80's/90's or better.
 A Civboot factory is one which can build such a factory from raw materials.
 
-Today's technology stack and supply chain are too large and complex to be able
-to reproduce or understand from books or working examples.  Simplifying parts of
-our technology stack has many benefits:
+* OR imagine that you wanted to be able to build computer chips and other
+  electronic components entirely "in house" with no dependency on a supply
+  chain. How large and expensive would such a factory currently be? Can we do
+  better?
+* OR imagine you wanted to have a self-sufficient factory on Mars that can build
+  computer chips and other necessary "tools that build tools". How large would
+  such a factory have to be and what would we need to take from earth?
 
-1. Provides a learning reference which can be extrapolated from.
-2. Creates a base to modify and branch new ideas.
+Today's technology stack and supply chain are too large and complex to be
+produced in house or taken to Mars, much less understood from books or working
+examples. Simplifying parts of our technology stack has many benefits:
+
+1. Provides working example that can be used as reference to learn from.
+2. Creates a base to modify and build new ideas and approaches.
 3. Allows adaptability if supply chains are disrupted or resources are scarce,
    especially in places with fewer resources.
 
@@ -49,9 +60,9 @@ recycled materials.
 Once a stack can be self-replicated we should keep iterating on the process.
 Make each sub-stack:
 
-1. Better, simpler and cheaper to build
-2. Easier to learn
-3. More concisely documented
+1. Easier to learn
+2. More concisely documented
+3. Better, simpler and cheaper to build
 4. Repeat
 
 Even if we fail, it will be worth the effort. Having a simplified
@@ -60,9 +71,9 @@ construction of a Civboot.
 
 ## Non-goals
 
-Civboot only contains needs to contain working prototypes and tutorials which
-provide a _working knowledge_ of how to reconstruct and improve the Civboot.
-Deeper understanding of things like transistors, hardware architecture, software
+Civboot only needs to contain working prototypes and tutorials which provide a
+_working knowledge_ of how to reconstruct and improve the Civboot. Deeper
+understanding of things like transistors, hardware architecture, software
 architecture, chemistry, mechanical engineering, etc can take potentially a
 lifetime of learning. It is hoped that Civboot can be a foundation for that
 learning, but Civboot itself aims to provide only a working understanding.
@@ -81,7 +92,7 @@ bullet points are not currently being worked on directly.
     * [X] <1k lines of spor bootstrapps fngi syntax
     * [X] <1k lines of fngi bootstrapps core syntax elements (`fn`, `if`,
       `loop`, `struct`)
-    * [ ] type checking
+    * [X] type checking
     * [ ] std library (string, regex, core data structures, zoa, etc)
 * [ ] Minimalist Operating System with core utilities. Again, each tool should
   ideally contain only a few thousand lines of code. *As simple as possible but
@@ -139,8 +150,7 @@ is to act as a version-controlled wiki for all efforts related to Civboot.
 This effort was started on 2019-11-14 and is still very early stage. This
 github repo should be used for discussion (through [opening an issue][issue]).
 
-Chat on
-[discord](https://discord.com/channels/1083089060765118464/1083089061553639477)
+[Chat on discord][discord]
 
 Podcast
 * View it on [youtube][CB youtube]
@@ -149,3 +159,4 @@ Podcast
 [issue]: https://github.com/civboot/civboot/issues
 [CB youtube]: https://www.youtube.com/channel/UCCYYcyLG3MAZahnoKLx3Aaw?view_as=subscriber
 [CB anchor]: https://anchor.fm/civboot
+[discord]: https://discord.gg/VJD95zsmfy
