@@ -81,3 +81,20 @@ whatever that means (I sincerely hope it doesn't somehow mean 0x89). Even F
 times F is only epty one (0xE1), far short of what I think fleventy five was
 supposed to mean (0xF5).
 
+## Existing Solution?
+
+Wikipedia gives us these options:
+https://en.wikipedia.org/wiki/Hexadecimal#Verbal_and_digital_representations
+
+I dislike several things. The "Rodgers" is clearly wrong -- you should not use
+"ten eleven twelve" to mean "A B C" -- then use a different words for "10 11
+12".
+
+The Magnuson is even worse. What is up with all the names? Who are "Ann",
+"Chris" and "Ernest" (the latter is even two syllables)? Also "Ann hundred"
+sounds like... "a hundred" -- no good. Also "Christeen" sounds like you are
+saying "Christ-teen" which might be construed as an expression for "a
+bazillion". But the biggest problem is "Dot" -- do they believe that hexidecimal
+can never be a floating point number? No wonder this has never caught on, it
+would be absurdely confusing.
+
