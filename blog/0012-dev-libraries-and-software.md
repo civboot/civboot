@@ -10,7 +10,7 @@ in the comming months include:
   sequential "patches"
   * gate: A frontend for pch
 
-All software will be written in Lua. I'd like to use this blogs to jot down
+All software will be written in Lua. I'd like to use this blog to jot down
 several of my thoughts on the architecture of the components (except ele, for
 that see the link).
 
@@ -57,6 +57,9 @@ The simplest way I can think of is:
 * Occaisionally a GC run can be done which re-writes the record+index files to
   remove deleted/modified records.
 
+* The source of truth is always the record file: the index file can be deleted
+  and re-built entirely from only the record file.
+
 I don't expect that this will be more than ~1000 lines of code (Lua).
 
 ## pch: patch based version control
@@ -90,6 +93,9 @@ All changes have an id (simply an index). Branching is simple: a new change
 trunk is created who's first change is a reference to the original trunk index.
 To merge you must have a clean rebase and append the branch to the main trunk.
 
+I don't expect this to be more than ~1000 lines of code either (using civlib
+library for some things like the diff algorithm).
+
 ## gate: pch frontend
 Gate will start as an extension for Ele but web-gate will eventually be a
 web-frontend and backend. It permits browsing change history and
@@ -98,4 +104,9 @@ viewing/editing topics (i.e.  updating bugs).
 > Note: Web-gate will not probably never run on the Civboot software stack (it will be
 > Linux-only) but acts as a "gateway" for transitioning from Civboot to
 > non-Civboot software.
+
+I'm not sure the size of the Ele extension here, I can imagine this being a few
+thousand lines of code. The web-frontend should use a lua framework (since it's
+not strictly civboot software anyway) so shouldn't take up _too_ much LoC (it's
+also less important to me that it's minimal).
 
