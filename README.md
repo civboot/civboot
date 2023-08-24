@@ -1,18 +1,22 @@
 # Civboot: <img src="Civboot.png" alt="civboot" width="30"/> a civilizational bootstrapper <img src="Civboot.png" alt="civboot" width="30"/>
 
-Civboot: a self-bootstrapping technology stack for modern civilization.
+To grow a tree you need a seed. To build a computer you need a Civboot. In the
+same way that a tiny seed has everything needed to grow into a tree, we should
+create a tiny Civboot which has everything needed to build a modern
+Civilization.
 
 > Want to share your thoughts or ask questions? Feel free to open an issue here
 > or [join us on discord][discord].
 
-What is a Civboot? Imagine a factory capable of building a minimalist
+What is a Civboot? Conceptually it is a seed from which can grow the essential
+technology of Civilization. Imagine a factory capable of building a minimalist
 general-purpose personal computer, like something from the 80's/90's or better.
 A Civboot factory is one which can build such a factory from raw materials.
 
 * OR imagine that you wanted to be able to build computer chips and other
-  electronic components entirely "in house" with no dependency on a supply
-  chain. How large and expensive would such a factory currently be? Can we do
-  better?
+  electronic components entirely "in house" (by a small company) with no
+  dependency on a supply chain. How large and expensive would such a factory
+  currently be? Can we do better?
 * OR imagine you wanted to have a self-sufficient factory on Mars that can build
   computer chips and other necessary "tools that build tools". How large would
   such a factory have to be and what would we need to take from earth?
@@ -32,7 +36,8 @@ The goal of Civboot is to follow the bellow process for each technology stack
 1. Reduce its complexity to something more replicatable and understandable.
 2. Build a working system from as simple of tools as possible.
 3. Document that system and its construction.
-4. Repeat until it can rebuild itself.
+4. Repeat until it can rebuild itself with the knowledge of only a small group
+   of people.
 
 The above should be continued for all technology stacks required to build the
 crown jewel of justified complexity in our Civilization: the computer.
@@ -41,7 +46,7 @@ Unfortunately, modern computers require a large and complex supply chain
 including multi-billion dollar silicon fabrication facilities. These require
 other billion dollar industries for their custom precision engineered tools,
 which themselves depend on other industries, etc. To be able to construct a CPU
-(and an entire Civboot) at a small scale (i.e. a university) we will likely need
+(and an entire Civboot) at a small scale (i.e. a University) we will likely need
 to pursue different technologies, such as [Thin Film Transistors][TFT] which can
 be made using low temperature processes on glass (instead of pure silicon).
 
@@ -49,13 +54,13 @@ These CPUs will be more rudimentary than the 2GHz with 8GiB of RAM we find in
 modern smartphones. Therefore, we will also need simpler software -- something
 like 100MHz CPUs with only a 10MiB of memory.
 
-The Civboot stack will not be built in a night. It will require probably
-hundreds of interested people working in many different fields. All Civboot
-components should be designed so that parts of them can be built with off the
-shelf components. The end goal is that _every component_ can be built inside a
-Civboot. "Every component" means not just that you could use a Civboot to build
-a CPU, it means **you can use a Civboot to build a Civboot** from only raw or
-recycled materials.
+The Civboot manufacturing, hardware and software stacks will not be built in a
+night. It will require probably hundreds of interested people working in many
+different fields. All Civboot components should be designed so that parts of
+them can be built with off the shelf components. The end goal is that _every
+component_ can be built inside a Civboot. "Every component" means not just that
+you could use a Civboot to build a CPU, it means **you can use a Civboot to
+build a Civboot** from only raw or recycled materials.
 
 Once a stack can be self-replicated we should keep iterating on the process.
 Make each sub-stack:
