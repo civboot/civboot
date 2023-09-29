@@ -19,41 +19,44 @@ portable assembly".
 
 
 ## Stack Lua
-Traditional Lua is implemented using a register VM snd it's reference
+Traditional Lua is implemented using a register VM and its reference
 implementation is only 24k LoC, absurdly small compared to many languages.
+It works by compiling Lua syntax into a custom VM bytecode, which is then
+executed natively (and is extremely fast).
 
-However, I think I can do better if my only focus is on size of implementation.
+However, I think I can do better if my only focus is on simplicity/readability
+and size of implementation.
 
 First of all, the parser and AST compiler (compiling lua syntax to lua bytecode)
 could easily be written in Lua. I have almost completed the MVP of a pretty
-great parsing library (pegl) in the Civboot libraries and am not far from
-parsing Lua syntax. After having built fngi from scratch in C I don't think
-generating Lua bytecode would be terribly difficult.
+great parsing library (pegl) and am not far from parsing Lua syntax. After
+having built fngi from scratch in C I don't think generating Lua VM bytecode
+would be terribly difficult.
 
 As for the VM and runtime, I believe I could make them very lean and mean AND I
-believe with the homogenious data model (Lua has only 5 types) I could use
-only slab allocators for all of Lua's data types. This rest of this post will
-discuss my current thinking on Lua's data structures.
+believe because of the homogenious data model (Lua has only 5 types) I could use
+only slab allocators for all of Lua's data. This rest of this post will discuss
+my current thinking on Lua's data structures.
 
 ### Lua Data Structures
-Lua has only 5 types: `nil`, `boolean`, `number`, `string` and `node`
+Lua has only 5 explicit types: `nil`, `boolean`, `number`, `string` and `node`
 
-Internally there are 8 types: `false true uint str2 number string table tnode`
+Internally I will use 9 types: `nil false true uint str2 number string table tnode`
 * nil is represented by a `NULL` pointer and cannot be used as a key in a table
 * uint: an unsigned integer that fit in the hash value of the metadata (it's
-  value IS it's hash, which we'll discuss)
+  value IS its "hash", which we'll discuss)
 * str2: 2 slot str, max size of `slotsize - 1` where the first byte stores the
   length.
-  * So is maxlen=3 on 32bit systems, maxlen=7 on 64bit systems
-* `tnode` is part of the table representation. `table` is the root of the
-  table.
+  * So it's maxlen=3 on 32bit systems, maxlen=7 on 64bit systems
+* `node` is a node in a table. `table` is the root of the table.
 
 Every internal Lua type must have the following metadata as it's first slot:
 * a bit for GC status (to implement a mark-and-sweep garbage collector)
-* 3 bits for the type
+* 3 bits for the type (8 types not including nil)
 * the remaining bits store the value itself (for uint) or the value's hash
 
 Type sizes:
+* 0 slots: nil (is a NULL pointer)
 * 1 slots: false, true, uint
 * 2 slots: number, str2
 * 9 slots: string, table, node
@@ -71,13 +74,13 @@ The table root node looks like:
 struct table [
   S              meta    -- Lua metadata (gc, ty=table, hash)
   S              ilen    -- length of indexes
-  &table         mt      -- metatable
-  [2; &Value]    indexed -- index-keyed values (2 slots)
-  [2; &KeyValue] hashed  -- hash-keyed values  (4 slots)
+  &table         mt      -- metatable pointer
+  [2; &Value]    indexed -- index-keyed root (2 slots)
+  [2; &KeyValue] hashed  -- hash-keyed root  (4 slots)
 ]
 ```
 
-Before we look at the root though, let's look at the node
+Before we look at the table though, let's look at the node
 
 ```
 struct node [
@@ -95,25 +98,32 @@ algorithm of an SST is that each "level" is shifted by a specific value
 which either increases or decreases as you descend the tree and then masked
 by it's power of 2 size.
 
-The data strcuture is pretty cool. Basically it functions how a normal "array"
-would except
+The data strcuture is pretty cool. Basically it performs the same tasks that a
+normal "array" would except:
 * Does not require alloacating arbitrary blocks of memory. Can be implemented
   with a slab allocator!
 * Linear growth: adding new items always requires `O(1)` time which is different
-  from typicall list/map implementations that sometimes take `O(N)` (but which
+  from most list/map implementations which sometimes take `O(N)` (but which
   amatorize to `O(1)` through the trick of always doubling their allocation
   size).
 * `O(log(S))` lookup: with 8 slots per node it takes log(8) to lookup a value.
   It's like a beefier version of a binary search tree!
 
 There is very little value to a SST if you can allocate arbitrarily large blocks
-of memory. However, for resource-constraint or simple systems with small data
-sizes I think it can be extremely useful.
+of memory (like you normally can in most OS's). However, for
+resource-constrained or simple systems like Civboot I think it can be extremely
+useful.
 
 
 #### Shifted Index Tree (SIT)
 
 > Note: We are using 5 slots for demo purposes. The Lua SIT uses 9 slots.
+
+Say you have a full node, each with a value:
+
+```
+[1, 2, 3, 4]  shift=0, each index has a value
+```
 
 An indexed node has the following properties:
 * A size of 5 slots, causing bitsize=2 and mask = `0b11`. Therefore it requires
@@ -127,22 +137,15 @@ An indexed node has the following properties:
   * a pointer to a 2S space (sparse=true), which stores the index and a pointer to a Lua value.
     This is an optimization for more sparse indexed data.
 
-
-Say you have a full node, each with a value:
-
-```
-[1, 2, 3, 4]  shift=0, each index has a value
-```
-
- Now we want to add index `5`. To do so we create a root and set it's shift = 2
+Now we want to add index `5`. To do so we create a root and set it's `shift=2`
 
 ```
     [A, 5, -, -]      shift=2
     /
-A[1, 2, 3, 4]         shift = 0
+A[1, 2, 3, 4]         shift=0
 ```
 
-The root node has shift=2. The first slot (who's value == 0 after shift+mask)
+The root node has `shift=2`. The first slot (who's value == 0 after shift+mask)
 points to our original root. The second slot points to the "sparse value" 5
 (index=5, value=whatever value was insert)
 
@@ -151,11 +154,11 @@ Now we want to add index `6`
              [A, B, -, -]       shift=2
               |  |
  /-----------/   |
-A[1, 2, 3, 4]    B[5, 6, -, -]  shift = 0
+A[1, 2, 3, 4]    B[5, 6, -, -]  shift=0
 ```
 
-There was already a sparse value at 5. Therefore the subnode was allocated and
-index 5 and 6 were moved into it.
+There was already a sparse value at 5. Therefore the subnode is allocated and
+index 5 and 6 are moved into it.
 
 Now let's say we want to add index 1,000,000 (a 20 bit value)
 
@@ -164,7 +167,7 @@ Now let's say we want to add index 1,000,000 (a 20 bit value)
             |
             C[A, B, -, -]          shift=2
  /-----------/   |
-A[1, 2, 3, 4]    B[5, 6, -, -]     shift = 0
+A[1, 2, 3, 4]    B[5, 6, -, -]     shift=0
 ```
 
 The root takes on an extremely large shift value. However, the sub-nodes remain
@@ -183,27 +186,27 @@ Say you have the following hash values:
     [0b1000, -, 0b1011, -]    shift=0
 ```
 
-Now you add `0b1100`, this clashes with the current value.  Therefore you
-allocate a new sub-node who's shift value is increased by bitsize
+Now you add `0b1100`, this clashes with the current index=0 value. Therefore
+you allocate a new child who's shift value is increased by bitsize
 
 ```
-    [A, -, 0b1011, -]   shift = 0
+    [A, -, 0b1011, -]   shift=0
     /
-A[0b1000, -, -, 0b1100] shift = 2
+A[0b1000, -, -, 0b1100] shift=2
 ```
 
 The sparsity is very reliant on the hash being sufficiently distributed, but
-since this is a feature of hashes we can rely on it.
+since this is a feature of hashes we CAN rely on it.
 
 ### String representation
-For strings larger than `str2` they must use an index tree:
+For strings larger than `str2` we use an index tree:
 
 ```
 struct string [
-  S                meta (including hash of THIS node)
-  U8               bitmap
-  (slot remainder) nodelen
-  [8; Data]        slots
+  S                  meta (including hash of THIS node)
+  U8                 bitmap
+    (slot remainder) nodelen
+  [8; Data]          slots
 ]
 ```
 
@@ -215,10 +218,10 @@ The contents of each slot are determined programatically:
 * The first slot contains the first 1/8 of the data, second 2/8, etc.
 
 Indexing is done by:
-* Divding the value by 8 (>>3) and checking the bitmap whether the slot is data
-  or a sub-node
+* Moding the len by 8 (%8) to get the slot and checking the bitmap for whether
+  the slot is data or a sub-node
 * If data then the value can be used directly
-* Else the process is repeated recursively with the sub-node
+* Else the process is repeated recursively with the sub-node.
 
 ## SPASM: structured portable assembly
 
@@ -261,7 +264,7 @@ The primary goals are:
 * C interop (including linker) of data and function calls
 
 If I'm right and the Lua VM interpreter will be extremely small, then I could
-pretty quickly spin up a Lua kernel using this VM. From there, Civboot would be
+pretty interatively port my Lua kernel to SPASM. From there, Civboot could be
 entirely self-hosting!
 
 [fngi]: http://github.com/civboot/fngi
