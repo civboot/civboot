@@ -38,33 +38,71 @@ believe because of the homogenious data model (Lua has only 5 types) I could use
 only slab allocators for all of Lua's data. This rest of this post will discuss
 my current thinking on Lua's data structures.
 
-### Lua Data Structures
-Lua has only 5 explicit types: `nil`, `boolean`, `number`, `string` and `node`
+### Slab Allocator
+A slab allocator is the simplest possible allocator. Fundamentally it is just:
 
-Internally I will use 9 types: `nil false true uint str2 number string table tnode`
+```
+struct SlabT [
+  &SLL             free -- singly-linked list of free T
+  &[SLAB_SIZE; T]  data -- reference to array of T
+]
+```
+
+When an item is allocated, it is popped from free. When it is free'd, it is
+added to free (corrupting any data inside). The slab allocator therefore takes
+no extra space to track its free blocks. Because all blocks are the same size,
+there will never be memory fragmentation.
+
+> In practice `data` is probably a SLL of allocated sectors, allowing the slab
+> to grow. Otherwise this really is all there is to a slab allocator.
+
+
+### Lua Data Structures
+Lua has only 5 explicit types: `nil`, `boolean`, `number`, `string` and `table`
+
+Internally I will use 8 types: `nil boolean uint str2 number string table node`
 * nil is represented by a `NULL` pointer and cannot be used as a key in a table
-* uint: an unsigned integer that fit in the hash value of the metadata (it's
+* uint: an unsigned integer that fits in the hash value of the metadata (it's
   value IS its "hash", which we'll discuss)
 * str2: 2 slot str, max size of `slotsize - 1` where the first byte stores the
   length.
   * So it's maxlen=3 on 32bit systems, maxlen=7 on 64bit systems
 * `node` is a node in a table. `table` is the root of the table.
 
-Every internal Lua type must have the following metadata as it's first slot:
-* a bit for GC status (to implement a mark-and-sweep garbage collector)
-* 3 bits for the type (8 types not including nil)
-* the remaining bits store the value itself (for uint) or the value's hash
+> We may also split up `boolean` into separate types of `false` and `true` as a
+> performance improvement (conditional check in a single instruction).
+
+Every internal Lua type must have the following metadata as its highest byte:
+* a bit for ALLOC (allocated vs free) for the slab allocator and GC
+* a bit for MARK to implement a mark-and-sweep garbage collector
+* 3 bits for the type (7 types not including nil)
+* the remaining bits store the value itself (for uint and boolean) or the
+  value's hash
 
 Type sizes:
 * 0 slots: nil (is a NULL pointer)
-* 1 slots: false, true, uint
+* 1 slots: boolean, uint
 * 2 slots: number, str2
 * 9 slots: string, table, node
 
 I believe that **all internal Lua Data an be represented as some version of
-these types**.  Even the function local variables and "return stack" can be
+these types**. Even the function local variables and "return stack" can be
 nodes (technically a SIT, see below). It won't necessarily be as performant as
 possible but it will be as simple as possible!
+
+#### Tagged Pointers
+A tagged pointer is simply a pointer value stored in the bottom N-2 bits of a
+slot (so on a 32 bit system it's stored in the lower 30 bits). To convert it to
+a pointer you simply shift it left by 2 (`<< 2`). This is okay since all lua
+data type pointers are aligned on one slot (2 bits for 32 bit systems, 3 bits
+for 64 bit systems)
+
+There are two cases where tagged pointers will be used:
+* The free singly-linked-list in the 1U slab allocator.
+* The first slot (value) of value/key pairs for tables.
+
+Without tagged pointers it would be impossible to have a 1U slab allocator at
+all and we wouldn't be able to use the 2U slab allocator for key/value pairs.
 
 ### Table representation
 
@@ -76,7 +114,7 @@ struct table [
   S              ilen    -- length of indexes
   &table         mt      -- metatable pointer
   [2; &Value]    indexed -- index-keyed root (2 slots)
-  [2; &KeyValue] hashed  -- hash-keyed root  (4 slots)
+  [4; &KeyValue] hashed  -- hash-keyed root  (4 slots)
 ]
 ```
 
@@ -129,13 +167,14 @@ An indexed node has the following properties:
 * A size of 5 slots, causing bitsize=2 and mask = `0b11`. Therefore it requires
   2 bits to store 4 indexes.
 * The first slot contains the shiftvalue (amount to shift) and a bitmap for
-  sparse type. If shiftvalue=0 then this is a leaf node (contains only values).
+  which slots are children. If shiftvalue=0 then this is a leaf node (contains
+  only values).
 * The remaining 4 slots contain:
-  * NULL indicating empty
-  * a pointer to a Lua value (only if shift=0)
-  * a pointer to a sub-node (sparse=false), who's shift value is decreased by bitsize
-  * a pointer to a 2S space (sparse=true), which stores the index and a pointer to a Lua value.
-    This is an optimization for more sparse indexed data.
+  * always a pointer to a Lua value or NULL (only if shift=0)
+  * a pointer to NULL or a 2S space (only if child=false), which stores the
+    `index` and a lua value reference.
+  * a pointer to a sub-node (only if child=true), who's shift value is decreased
+    by bitsize
 
 Now we want to add index `5`. To do so we create a root and set it's `shift=2`
 
@@ -176,8 +215,11 @@ sparse.
 #### Shifted Hash Tree (SHT)
 
 The shifted hash tree works in somewhat the opposite direction, which makes it
-much simpler:
+much simpler to implement:
 * The root is always shift=0
+* the Children bitmap still works the same. If child=true it is a sub-node. If
+  child=false it is a pointer to 2U (value/key) references, where value is a
+  tagged pointer.
 * Collissions cause sub-nodes to be created
 
 Say you have the following hash values:
