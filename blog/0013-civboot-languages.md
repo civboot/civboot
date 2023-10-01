@@ -58,24 +58,24 @@ there will never be memory fragmentation.
 
 
 ### Lua Data Structures
-Lua has only 5 explicit types: `nil`, `boolean`, `number`, `string` and `table`
+Lua has only 8 basic types: `nil`, `boolean`, `number`, `string`, `table`,
+`function`, `userdata` and `thread`
 
-Internally I will use 8 types: `nil boolean uint str2 number string table node`
-* nil is represented by a `NULL` pointer and cannot be used as a key in a table
-* uint: an unsigned integer that fits in the hash value of the metadata (it's
+Internally I will use 10 types:
+`nil false true uint str2 number string table function thread userdata`
+* nil is represented by a `NULL` pointer and cannot be used as a key in a table.
+  This also means it is not included in the type enum.
+* uint: an unsigned integer that fits in the hash value of the metadata (its
   value IS its "hash", which we'll discuss)
-* str2: 2 slot str, max size of `slotsize - 1` where the first byte stores the
-  length.
-  * So it's maxlen=3 on 32bit systems, maxlen=7 on 64bit systems
-* `node` is a node in a table. `table` is the root of the table.
+* str2: 2 slot str, max size `sizeof(S) * 2 - 2`
+  * So up to len 6 on 32bit systems, len 14 on 64bit systems
+* `false and true` are separate types so that conditional checks can be done by
+  only masking the type field: both `nil` (all 0's) and `false` will return `0`.
 
-> We may also split up `boolean` into separate types of `false` and `true` as a
-> performance improvement (conditional check in a single instruction).
-
-Every internal Lua type must have the following metadata as its highest byte:
+Every internal Lua type must have the following metadata as its first byte:
 * a bit for ALLOC (allocated vs free) for the slab allocator and GC
 * a bit for MARK to implement a mark-and-sweep garbage collector
-* 3 bits for the type (7 types not including nil)
+* 4 bits for the type
 * the remaining bits store the value itself (for uint and boolean) or the
   value's hash
 
@@ -84,27 +84,32 @@ Type sizes:
 * 1 slots: boolean, uint
 * 2 slots: number, str2
 * 9 slots: string, table, node
+* other (not yet decided): function, thread, userdata
 
 I believe that **all internal Lua Data an be represented as some version of
-these types**. Even the function local variables and "return stack" can be
-nodes (technically a SIT, see below). It won't necessarily be as performant as
-possible but it will be as simple as possible!
+these slot sizes**. Even the function local variables and "return stack" can be
+9S nodes (technically a SIT, see below). It won't necessarily be as performant
+as possible but it will be as simple as possible!
 
 #### Tagged Pointers
-A tagged pointer is simply a pointer value stored in the bottom N-2 bits of a
-slot (so on a 32 bit system it's stored in the lower 30 bits). To convert it to
-a pointer you simply shift it left by 2 (`<< 2`). This is okay since all lua
-data type pointers are aligned on one slot (2 bits for 32 bit systems, 3 bits
-for 64 bit systems)
+A tagged pointer is simply a pointer value which uses 2 bits that are unused by
+the rest of the system. To get the pointer you simply mask or shift (depending
+on the endian-ness). These bits are never used because all data structures are
+slot-aligned so there are 2 or 3 wasted bits.
 
 There are two cases where tagged pointers will be used:
-* The free singly-linked-list in the 1U slab allocator.
+* The free singly-linked-list in the 1U slab allocator (used to track free
+  slabs)
 * The first slot (value) of value/key pairs for tables.
 
 Without tagged pointers it would be impossible to have a 1U slab allocator at
 all and we wouldn't be able to use the 2U slab allocator for key/value pairs.
 
 ### Table representation
+
+> Note: something very similar to the Shifted Search Tree presented here was
+> discussed in [an artcle][1] I found shortly after writing it. You may prefer
+> that article's descriptions and diagrams.
 
 The table root node looks like:
 
@@ -237,33 +242,107 @@ you allocate a new child who's shift value is increased by bitsize
 A[0b1000, -, -, 0b1100] shift=2
 ```
 
-The sparsity is very reliant on the hash being sufficiently distributed, but
-since this is a feature of hashes we CAN rely on it.
+There is another possible approach, which solves the issue of what happens
+when two hashes are completely identical: When two keys first colide, a new
+sub-table is reserved. Instead of being a shift-tree this is simply an "array"
+of up to 4 key/value pairs that must be walked to find a match. This reduces the
+number of 2S items we use and works even if the the keys are identical. If the
+number grows to more than 4 then a shift sub-node is reserved.
+
+Something like that. I think the implementation of this could have some
+complexity for the edge-cases where hashes are identical or near-identical but
+at the end of the day will be very performant for most real workflows.
 
 ### String representation
-For strings larger than `str2` we use an index tree:
+For `str2` the str stores `maxlen = sizeof(S) * 2 - 7`, so 8 bytes for 32 bit
+systems and 15 bytes for 64 bit systems. This is accomplished because the
+first byte has the normal memory and ty bits and the second byte has the string
+length. The rest of the slot is the string data. No hash value is stored (since
+hashing is fast for so little data).
+
+For `string` the root is stored in a 2S space. This primarily has the type and
+precomputed hash, with a pointer to the actual string.
+
+The actual string is stored in a 9S space (the same slab as tables). The first
+slot contains the `length` of the node (+ all its sub-nodes). The remaining 8
+slots contain either the raw string data or pointers to sub-nodes. 
 
 ```
 struct string [
   S                  meta (including hash of THIS node)
-  U8                 bitmap
-    (slot remainder) nodelen
+  S                  nodelen
   [8; Data]          slots
 ]
 ```
 
-The root contains the total string length of this node and sub-nodes (in bytes).
-The contents of each slot are determined programatically:
-* The bitmap contains whether each slot contains string data or a pointer to
-  another string node.
-* The data is split into 8ths, each slot containing one part
-* The first slot contains the first 1/8 of the data, second 2/8, etc.
+We now need to decide how we determine how many sub-nodes we need.  We want to
+store strings as compactly as possible while still being able to quickly index
+them. Ideally we would put as much data as possible into the "root" node itself
+and any overflow would go into sub-nodes -- which themselves would store as much
+data as possible.
 
-Indexing is done by:
-* Moding the len by 8 (%8) to get the slot and checking the bitmap for whether
-  the slot is data or a sub-node
-* If data then the value can be used directly
-* Else the process is repeated recursively with the sub-node.
+Following this logic:
+
+* A node needs zero subnodes (only data) if the data can fit entirely inside the
+  8 slots. This is `8 * sizeof(S)` bytes. So 32 bytes for 32bit systems and 64
+  bytes for 64bit systems.
+* One subnode lets us store that `sizeof(S) * 8` in the subnode. However, we
+  can now only store `sizeof(S) * (8 - 1)` in our own data (as one S is for the
+  sub-node).
+
+This is generalizable (using `N` as numSubnodes) to the following algebraic
+reductions to:
+
+```
+maxlen = 8*sizeof(S)*N + sizeof(S) * (8 - N)
+maxlen = 8*sizeof(S)*N + 8*sizeof(S) - sizeof(S)*N
+maxlen = 7*sizeof(S)*N + 8*sizeof(S)
+
+Solving for N
+numsubs = (maxlen - 8*sizeof(S)) / (7*sizeof(S))
+```
+
+What we want is the number of subnodes we _need_ given a certain length. Using a
+few test cases and a bit of equation twidling I came upon the solution:
+
+```
+subnodes = (len - (8*sizeof(S) + 1))/(7 * sizeof(S)) + 1
+```
+
+> Of course `8` is just `data_slots` and `7` is just `data_slots - 1` if you
+> wanted to generalize the equation for 4 slots or 16 slots or whatever.
+
+This works for all `subnodes<=8` (aka depth=1 strings where sub-nodes contain
+only raw data). Therefore this works up to a length of `8 * 8 * sizeof(S)`
+bytes: 256 bytes on 32bit system and 512 bytes on 64bit systems.
+
+Larger strings require a modified strategy. The simplest one I can think of is
+to store `len // 8` bytes in each sub-node. This makes finding the index
+extremely fast but I'm slightly worried it is very non-optimal for storage
+space.
+
+An optimal solution would be something like:
+* Compute how many depth1 subnodes would be needed for the string. This is
+  just `len / (8 * 8 * sizeof(S))`
+* If this number is less than 8 (which it is <= 2048 bytes on 32 bit systems)
+  then that is how many sub-nodes are depth1 subnodes, the remaining slots are
+  depth0 subnodes or raw data.
+* If this number is more than 8 then do the computation again but for how many
+  depth2 subnodes are needed, etc.
+
+The problem is that I doubt the above generalizes into a neat linear equation
+like our depth1 subnodes, meaning that finding an index becomes slow. Also, I
+somewhat doubt that the compactness is _that_ much better than the extremely
+simple solution I outlined. I'd love to actually compare the two approaches
+though, as well as hear thoughts on more optimal solutions. It _might_ be
+possible to use some of the `len` space to keep track of some part of the
+above algorithm to make indexing faster, but I can't think of it at this time.
+
+I'd love other's thoughts on the proper string storage algorithms.
+
+> There is a third solution which is that string indexing isn't important, only
+> string iteration (by native code like pattern matching) is important. I would
+> prefer this wasn't the solution we went with.
 
 ## SPASM: structured portable assembly
 
@@ -309,4 +388,5 @@ If I'm right and the Lua VM interpreter will be extremely small, then I could
 pretty interatively port my Lua kernel to SPASM. From there, Civboot could be
 entirely self-hosting!
 
+[1]: https://nullprogram.com/blog/2023/09/30/
 [fngi]: http://github.com/civboot/fngi
