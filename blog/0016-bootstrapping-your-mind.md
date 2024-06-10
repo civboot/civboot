@@ -14,19 +14,19 @@ write" we will end up with more and more of it. Why do we need all this
 complexity to drive our own development and learning environment? Why does even
 most popular "simple" editor (vim) require [944k lines of code][vim]?
 
-Software cannot be truly free if you can never truly own it. Regarldess of
+Software cannot be truly free if you can never truly own it. Regardless of
 what the LICENSE file says, it is impossible to own something you can never
 hope to understand and "what I cannot create, I do not understand" (Feynman).
-Yes, these monoliths of computational efficiencty and power DO have value! They
+Yes, these monoliths of computational efficiency and power DO have value! They
 allow millions of people to build and change tools that are backwards-compatible
 and interoperable with eachother for decades or more. But do we really NEED a
 tower of babel to just make and track edits to a text file or build a small
-library on your personal computer? The tower of Babel will eventualy fall, let's
+library on your personal computer? The tower of Babel will eventually fall, let's
 not let the basic tools of software crumble with it.
 
 For over a year I've been working on a [complete dev stack implemented in
 Lua][civlua] ([why lua]). It currently totals 9,500 lines of (non-test) code and
-has been going swimingly. We'll see how much I eat my own words, but I believe
+has been going swimmingly. We'll see how much I eat my own words, but I believe
 the entire dev stack should be less than 20,000 lines of code; including simple
 software such as: vim/emacs-like editor with built-in lua shell, version control
 system, unix-like utilities, grep-like tool and others. This software will (at
