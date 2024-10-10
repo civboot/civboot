@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html><body>
+<head>
+<style>
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+h1 { margin-top: 0.5em; margin-bottom: 0.3em; border-bottom: 2px solid }
+h2 { margin-top: 0.3em; margin-bottom: 0.2em; border-bottom: 1px solid }
+h3 { margin-top: 0.2em; margin-bottom: 0.1em; border-bottom: 1px solid silver }
+h4 { margin-top: 0.1em; margin-bottom: 0.05em; }
+
+p  { margin-top: 0.3em; margin-bottom: 0.0em; }
+ul { margin-top: 0.1em; margin-bottom: 0.5em; }
+li { margin-top: 0.1em; margin-bottom: 0.0em; }
+blockquote {
+  border: 1px solid #999;  border-radius: 0.1em;
+  padding: 2px;            background-color: mintcream;
+}
+code {
+  background-color: whitesmoke;
+  border: 1px solid #999;  border-radius: 0.3em;
+  font-family: Monaco, monospace;
+  font-size: 16px;
+  padding: 0px;
+  white-space: pre
+}
+.block {
+  margin-top: 0.1em;
+  background-color: snow;  display: block;
+  padding: 5px;
+}
+table, th, td {
+    vertical-align: top;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid grey;
+    margin: 0.05em 0.05em;
+    padding: 3px 5px;
+}
+table { min-width: 400px;         }
+th    { background-color: LightCyan; }
+</style>
+</head>
+Civboot will use three diff/compression algorithms: <ul>
+<li>Patience diff for user-readable diffs, implemented in pure-lua and used for
+tests/editor/etc.</li>
+<li>a modification of XDelta called RDelta for binary diffs and compression</li>
+<li>Huffman encoding to further compress RDelta files</li>
+</ul>
+<p>
+<p>
+<h3>XDelta</h3>
+xdelta, <a href="http://www.xmailserver.org/xdfs.pdf">http://www.xmailserver.org/xdfs.pdf</a> is pretty cool. From that doc: <blockquote>
+The computeDelta function implements the basic greedy algorithm, making a calls
+to initMatch to build a string matching data structure for the source version,
+findMatch to find the longest match at a particular offset in the
+target version, and outputInst when it generates an instruction.
+<p>
+A key feature of the algorithm is the manner in which it deals with hash
+collisions. The Xdelta initMatch function builds a hash table mapping
+fingerprint values to their offsets for blocks of size s in the source version.
+There is only one entry per bucket in the fingerprint table, and a hash
+collision always clobbers the existing entry. After populating the fingerprint
+table, it processes the target version in pages, fixed-size blocks with size
+determined by the underlying I/O subsystem. The findMatch function searches for
+a matching fingerprint in the hash table and then uses direct string comparison
+to check whether a match exists, also extending the match as far as possible.
+<p>
+Many details are omitted in the pseudo-code. For example, the direct string
+comparison actually extends the match as far as possible in both directions,
+with the exception that it will not back-up past a page boundary (to support
+stream-processing). Fingerprints are inserted into the fingerprint table in the
+reverse order that they appear in the source version, giving preference to
+earlier (potentially longer) matches.
+<p>
+The decision to use a linear-space algorithm is justified as follows. First,
+the constant is quite small since the algorithm uses no pointers and only one
+32-bit word of storage per entry in the fingerprint table. The fingerprint
+table is constructed with a number of buckets <code>b</code> equal to a prime number such
+that N // s < b <= 2 * (N // s). At four bytes per bucket, the space used for
+string matching in Xdelta is bounded by N // 2 bytes.
+<p>
+The computeDelta function implements the basic greedy copy/insert algorithm,
+accepting a source and target version as inputs. The <code>initMatch</code> and <code>findMatch</code>
+functions perform string matching using a hash table of fingerprint values for
+source blocks of length <code>s</code>, the fingerprint width, which is 16 bytes.
+</blockquote>
+<p>
+Here's the psuedo code
+<code class="block">function computeDelta(src; tgt) {
+  i =0
+  sindex = initMatch(src) // Initialize string matching.
+  while(i &lt; size(tgt)) {  // Loop over target offsets.
+    o, l = findMatch(src, sindex, tgt, i) // Find longest match.
+    if(l&lt;s) {
+      outputInst(finsert tgt[i] g)        // Insert instruction.
+    } else {
+      outputInst(fcopy o l g)             // Copy instruction.
+    }
+    i = i + 1
+  }
+}
+
+function initMatch(src) {
+  i = 0
+  sindex = empty               // Initialize output array (hash table).
+  while(i + s &lt;= size(src)) {  // Loop over source blocks.
+    f = adler32(src; i; i + s) // Compute fingerprint.
+    sindex[hash(f)] = i        // Enter in table.
+    i = i + s                  //
+  }
+  return(sindex)
+}
+
+function findMatch(src, sindex, tgt, otgt) {
+  f = adler32(tgt, otgt, otgt + s) // Compute fingerprint.
+  if(sindex[hash(f )] == nil) {
+    return (-1, -1) // No match found.
+  }
+  osrc = sindex[hash(f)]
+  l = matchLength(tgt, otgt, src, osrc) // Compute match length.
+  return(osrc, l)
+}
+
+// https://en.wikipedia.org/wiki/Adler-32
+const uint32_t MOD_ADLER = 65521;
+
+// where data is the location of the data in physical memory and
+//    len is the length of the data in bytes
+uint32_t adler32(unsigned char *data, size_t len) {
+  uint32_t a = 1, b = 0;
+  size_t index;
+  // Process each byte of the data in order
+  for (index = 0; index &lt; len; ++index) {
+    a = (a + data[index]) % MOD_ADLER;
+    b = (b + a) % MOD_ADLER;
+  }
+  return (b &lt;&lt; 16) | a;
+}</code>
+<p>
+<h3>RDelta</h3>
+<p>
+I like xdelta's simplicity but I think we can do better. Changes: <ul>
+<li>Three operations: <code>ADD(len, data)</code>, <code>RUN(len, char)</code> and
+<code>COPY(len, raddr)</code>. The main difference is the addition of RUN for copying a
+single character and using raddr in COPY like so
+<code>copyFrom = pos - raddr - len</code></li>
+<li>The operations are encoded thusly: <code class="block">    O O C S S S S S  : OPERATION
+    O:operation C=continue-bit S=5bit size
+
+    C S S S S S S S  : SIZE or RADDR
+    C=continue-bit S=7bit size/addr
+  </code>
+The size/addr can be "continued" with the continue-bit which shifts the
+current size and adds the next byte, etc -- allowing a size/raddr of any
+length.</li>
+<li>Relative addresses can make more-recent data smaller to encode. We also clobber
+all fingerprint indexes with their more recent entries. This rests on the theory
+(which I think is sound) that more recent data is going to (in general) be
+more similar than less recent data. Some examples: <ul>
+<li>source code with multiple references to a function defined in that file</li>
+<li>tar-like file that encodes whole sorted paths will have progressively
+longer strings of similar data</li>
+<li>an html document with multiple links to different locations on the same site.</li>
+</ul></li>
+<li>Use two windows: <code>w3</code> and <code>w6</code> for 3 and 6 byte windows. <ul>
+<li><b>w3</b>: a COPY of up to 31 bytes from less 128 bytes from the current
+position only takes 2 bytes (66% compression) (and we search for as wide of
+like data as we can, meaning we might find more). The w3 fingerprint table
+therefore only needs to be ~128 slots. We can use 4093 slots, which is a
+prime number close to 4096 (2^12) to avoid collisions and since we may find
+more than 3 bytes in common when we search.</li>
+<li><b>w6</b>: a COPY of up to 31 bytes from less than <code>2^(5 + 7) = 2^14 = 16384</code>
+bytes distance will achieve at least 50% compression. Because there is more
+value the table for further out items the table can be much larger -- perhaps
+256KiB - 1MiB depending on the host size.</li>
+<li><b>w12</b>: is likely not needed, but could be experimented with a later date.
+This will significantly slow compression time and increase memory usage,
+but may be useful for some inputs.</li>
+</ul></li>
+</ul>
+<p>
+The basic design is to join old and new data (if doing a diff. If just
+compressing then old is an empty string) and constantly build the <code>w3</code> and <code>w6</code>
+windows. The tables are indexed by the <code>adler32</code> of their data, collisions
+clobber (closest value has priority). All three windows are calculated for each
+byte, with larger windows winning to define the COPY encoding. The COPY is
+compared to ADD and RUN encodings and the smallest option chosen.
+<p>
+<blockquote> Note that the fingerprint for w3 is calculated in the middle of calculating w6,
+(w6 fingerprint just continues where w3 left off), so there is minimal
+performance penalty or memory usage to have w3.</blockquote>
+<p>
+The final output can then be huffman encoded to compress further -- I theorize
+that the COPY actions will cause the data to be even MORE regular than
+uncompressed data, making huffman encoding potentially more efficient than
+it otherwise would be (i.e. the act of compressing will INCREASE the efficiency
+of huffman itself). It will be fun to see if this is the case.
+<p>
+</body></html>
