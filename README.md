@@ -13,10 +13,14 @@ technology of Civilization. Imagine a factory capable of building a minimalist
 general-purpose personal computer, like something from the 80's/90's or better.
 A Civboot factory is one which can build such a factory from raw materials.
 
+* OR for only software, see the (working!) self-contained developer tech stack,
+  [Civstack].
+ 
 * OR imagine that you wanted to be able to build computer chips and other
   electronic components entirely "in house" (by a small company) with no
   dependency on a supply chain. How large and expensive would such a factory
   currently be? Can we do better?
+  
 * OR imagine you wanted to have a self-sufficient factory on Mars that can build
   computer chips and other necessary "tools that build tools". How large would
   such a factory have to be and what would we need to take from earth?
