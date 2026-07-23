@@ -6,7 +6,7 @@ create a tiny Civboot which has everything needed to build a modern
 Civilization.
 
 > Want to share your thoughts or ask questions? Feel free to open an issue here
-> or [join us on discord][discord].
+> or [join the mailing list][mail].
 
 What is a Civboot? Conceptually it is a seed from which can grow the essential
 technology of Civilization. Imagine a factory capable of building a minimalist
@@ -88,36 +88,21 @@ learning, but Civboot itself aims to provide only a working understanding.
 The following are what is necessary to complete a Civboot. Items without nested
 bullet points are not currently being worked on directly.
 
-* [ ] Minimalist software stack. The goal is that each "major layer" should be
-  ~1-2 thousand lines of readable code and "core" tests.
-  * [x] The [cxt][cxt] documentation syntax.
-  * [x] The [zoa][zoa] cross-language serialized data format.
-  * [ ] The [fngi][fngi] programming language
-    * [X] <1k line C file bootstrapps spor assembly language and runtime
-    * [X] <1k lines of spor bootstrapps fngi syntax
-    * [X] <1k lines of fngi bootstrapps core syntax elements (`fn`, `if`,
-      `loop`, `struct`)
-    * [X] type checking
-    * [ ] std library (string, regex, core data structures, zoa, etc)
-* [ ] Minimalist Operating System with core utilities. Again, each tool should
-  ideally contain only a few thousand lines of code. *As simple as possible but
-  no simpler*
-  * [ ] Scripting language, better than bash probably good at processing
-    data-flows. The [D database language][D database language] tutorial provides
-    inspiration.
-  * [ ] Cross compiling IR compiler, [QBE][QBE] provides inspiration.
-  * [ ] Text editor + "shell". Vim and Jupiter notebooks provide inspiration.
-  * [ ] Operating System. The [OberonOS][OberonOS] and [CollapseOS][CollapseOS]
-    provide inspiration and demonstrate what is possible: an operating system in
-    < 10,000 lines of code with cross compilers and editing utilities. To a
-    lesser degree Linux/BSD/Plan9 give some inspiration.
-  * [ ] Version control and bug-tracking software [ugit][ugit] and
-    [fossil][fossil] provide inspiration.
-  * [ ] Learning system. [Khan Academy][Khan Academy] provides inspiration.
+* [ ] [Civstack][civstack] - a self-contained software developer tech stack,
+      see the project for the full details
+  * [x] Uses Lua, eventually it will implement a Lua in it's own iA assembly.
+  * [x] Ele Editor - now in alpha (usable/hackable) stage.
+  * [ ] Shell - Ele will have a mode to act as a Lua shell
+  * [ ] Version Control - PVC (patch based version control), close to alpha
+  * [ ] iA assembly language - a typed assembly language
+  * [ ] Educational games - the `typo` game is usable, but more will come.
+        [Khan Academy][Khan Academy] provides some inspiration.
+  * [ ] Porting to javascript for one-click running the whole stack in the browser.
   * [ ] Software defined 2D-CAD Modeling. [ImplicitCAD][ImplicitCAD] provides
-    inspiration.
+        inspiration.
   * [ ] Networking stack. [Networks from scratch][NFS] seems like a good start,
         [PJON][PJON] provides inspiration
+  * [ ] An OS that runs on Civboot-style (constrained) hardware.
 * [ ] A reduced (only what's necessary for Civboot) version of the [Global
   Village Construction Set][OSE] and built using Civboot software
 * [ ] Photo Optics (lenses) fabrication and working knowledge.
@@ -152,16 +137,16 @@ bullet points are not currently being worked on directly.
 This is the repository for Civboot: a Civilizational Bootstrapper. It's purpose
 is to act as a version-controlled wiki for all efforts related to Civboot.
 
-This effort was started on 2019-11-14 and is still very early stage. This
-github repo should be used for discussion (through [opening an issue][issue]).
+This effort was started on 2019-11-14. [Civstack][civstack] is now in Alpha stage,
+and I have been using it as the only editor for several weeks as of 2026-07-23.
 
-[Chat on discord][discord]
+Resources:
 
-Podcast
-* View it on [youtube][CB youtube]
-* Listen on [anchor][CB anchor] or wherever you get your podcasts.
+* [Discuss on the mailing list][mail]
+* [Open an issue][issue]
+* [Civstack (software) API Docs][Civstack]
+* [Blog](https://civboot.github.io/blog/index.html)
 
 [issue]: https://github.com/civboot/civboot/issues
-[CB youtube]: https://www.youtube.com/channel/UCCYYcyLG3MAZahnoKLx3Aaw?view_as=subscriber
-[CB anchor]: https://anchor.fm/civboot
-[discord]: https://discord.gg/VJD95zsmfy
+[civstack]: https://civboot.github.io/
+[mail]: https://groups.google.com/g/civboot
